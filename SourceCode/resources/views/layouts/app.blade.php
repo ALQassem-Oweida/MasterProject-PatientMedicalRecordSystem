@@ -169,6 +169,9 @@
                                 @if ( Auth::user()->user_role===2)
                                     href="/user_dashboard"
                                 @endif
+                                @if ( Auth::user()->user_role===3)
+                                href="/doctor_dashboard"
+                                @endif
                                 
                                 >Dashboard</a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

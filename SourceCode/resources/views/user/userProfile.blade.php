@@ -1,7 +1,5 @@
-@extends('layouts.app')
-
-@section('content')
-
+@extends('user.userdash')
+@section('user_content')  
 
 
 

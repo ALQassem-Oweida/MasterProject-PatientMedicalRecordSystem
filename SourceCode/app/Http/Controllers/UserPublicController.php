@@ -24,7 +24,12 @@ class UserPublicController extends Controller
         $user = Auth::user();
         $id=Auth::user()->id;
         $info=DB::table('user_infos')->where('user_info_relation', $id)->get();
-        return view('home', ['user' => $user,'info'=>$info]);
+        if(Auth::user()->user_role===1)
+        return view('admin/Profile', ['user' => $user,'info'=>$info]);
+        else if (Auth::user()->user_role===3)
+        return view('doctor/doctor_Profile', ['user' => $user,'info'=>$info]);
+        else 
+        return view('user/userProfile', ['user' => $user,'info'=>$info]);
     }
 
  

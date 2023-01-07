@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Doctor;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -10,6 +10,6 @@ class DashboardController extends Controller {
   }
   public function index() {
     $usersCount = User::where('user_role',2)->count();
-    return view('admin/admindash',['usersCount'=>$usersCount]);
+    return view('doctor/doctorDash',['usersCount'=>$usersCount]);
   }
 }

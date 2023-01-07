@@ -28,6 +28,6 @@ class HomeController extends Controller
         $id=Auth::user()->id;
         $info=DB::table('user_infos')->where('user_info_relation', $id)->get();
         
-        return view('home',['user' => $user,'info'=>$info]);
+        return view('user/userProfile',['user' => $user,'info'=>$info]);
     }
 }

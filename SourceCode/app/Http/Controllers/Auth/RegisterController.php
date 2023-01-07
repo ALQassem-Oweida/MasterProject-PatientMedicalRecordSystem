@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\user_info;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -51,11 +52,13 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        // $user = user_info::where('national_id', $data['national_id'])->exists();
         return Validator::make($data, [
             // 'name' => ['required', 'string', 'max:255'],
             'national_id' => ['required','regex:/(^[0-9]+$)+/','min:10','max:10','unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8','max:12','confirmed'],
+            // $user!=null
         ]);
     }
 
@@ -67,7 +70,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+
+  
+       
+
+     return User::create([
             // 'name' => $data['name'],
             'phone' => $data['phone'],
             'national_id' => $data['national_id'],

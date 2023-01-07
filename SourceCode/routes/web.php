@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\UsersListingController;
+use App\Http\Controllers\Doctor\PatientListingController;
+use App\Http\Controllers\MedicalHistory;
+use App\Http\Controllers\Medications;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserPublicController;
@@ -9,11 +14,6 @@ use App\Http\Controllers\UserPublicController;
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
 */
 
 Route::get('/', function () {
@@ -34,12 +34,37 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::resource('/userprofile', UserPublicController::class);
+Route::resource('/medicalhistory', MedicalHistory::class);
+Route::resource('/medicalhistory2', Medications::class);
 
 
-// Route::get('/userdash', function () {
-//     return view('user.userdash');
-// });
+
+Route::get('/user_dashboard', 'App\Http\Controllers\User\DashboardController@index')->middleware('role:2');
 
 
-Route::get('/admin_dashboard', 'App\Http\Controllers\Admin\DashboardController@index')->middleware('role:1');;
-Route::get('/user_dashboard', 'App\Http\Controllers\User\DashboardController@index')->middleware('role:2');;
+
+
+
+
+//********* Admin Routes *********//
+
+Route::middleware('role:1')->group(function () {
+    Route::get('/admin_dashboard', 'App\Http\Controllers\Admin\DashboardController@index');
+    Route::resource('/userList', UsersListingController::class);
+    Route::get('/searchadmin', 'App\Http\Controllers\Admin\UsersListingController@search');
+   
+   
+ 
+});
+
+
+//********* Doctors Routes *********//
+
+Route::middleware('role:3')->group(function () {
+    Route::get('/doctor_dashboard', 'App\Http\Controllers\Doctor\DashboardController@index');
+    Route::resource('/patientList', PatientListingController::class);
+    Route::get('/search', 'App\Http\Controllers\Doctor\PatientListingController@search');
+   
+   
+ 
+});

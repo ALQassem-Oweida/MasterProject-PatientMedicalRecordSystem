@@ -17,4 +17,16 @@ class user_info extends Model
     protected $fillable = [
         'name',
     ];
+
+
+
+    // public function user()
+    // {
+    //   return $this->belongsTo(User::class,'user_info_relation');
+    // }
+  
+
+
+
+
 }

@@ -3,37 +3,37 @@
 
 
 
-<div class="wrapper" >
+<div class="wrapper">
 
 
 
     {{-- nav --}}
-    <nav id="sidebar" class="sidebar js-sidebar" >
-        <div class="sidebar-content  js-simplebar">
+    <nav id="sidebar" class="sidebar js-sidebar">
+        <div class="sidebar-content js-simplebar">
             <a class="sidebar-brand" href="index.html">
-      <span class="align-middle">User Dashboard</span>
+      <span class="align-middle">Doctor Dashboard</span>
      </a>
 
-            <ul class="sidebar-nav " >
+            <ul class="sidebar-nav">
                 <li class="sidebar-header">
                     Pages
                 </li>
 
                 <li class="sidebar-item active">
-                    <a class="sidebar-link " href="/user_dashboard">
+                    <a class="sidebar-link" href="/doctor_dashboard">
           <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
         </a>
                 </li>
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link " href="{{ route('userprofile.index') }}">
-          <i class="align-middle" data-feather="user"></i> <span class="align-middle">Personal information</span>
+                    <a class="sidebar-link" href="{{ route('userprofile.index') }}">
+          <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
         </a>
            
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link userside" href="{{ route('medicalhistory.index') }}">
-          <i class="align-middle" data-feather="activity"></i> <span class="align-middle">Medical history</span>
+                    <a class="sidebar-link" href="/patientList">
+          <i class="align-middle" data-feather="user"></i> <span class="align-middle">Patient Data</span>
         </a>
                 </li>
 
@@ -42,27 +42,8 @@
            
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('medicalhistory2.index') }}">
-          <i class="align-middle" data-feather="link-2"></i> <span class="align-middle">Current medications</span>
-        </a>
-                </li>
-
-                <li class="sidebar-item">
                     <a class="sidebar-link" href="pages-blank.html">
-          <i class="align-middle" data-feather="calendar"></i> <span class="align-middle">Appointments and visits</span>
-        </a>
-                </li>
-
-
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="pages-blank.html">
-          <i class="align-middle" data-feather="clipboard"></i> <span class="align-middle">Lab results</span>
-        </a>
-                </li>
-
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="pages-blank.html">
-          <i class="align-middle" data-feather="info"></i> <span class="align-middle">Insurance information</span>
+          <i class="align-middle" data-feather="book"></i> <span class="align-middle">Blank</span>
         </a>
                 </li>
 
@@ -91,7 +72,7 @@
             <div class="container-fluid p-0">
 
      
-                @yield('user_content')
+                @yield('doctor_content')
               
 
                

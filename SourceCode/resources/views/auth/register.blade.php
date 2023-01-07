@@ -141,7 +141,7 @@
                                             </div>
                                         </div>
 
-                                        <input id="role" type="hidden" name="role" value="1">
+                                        <input id="role" type="hidden" name="role" value="2">
 
                                    
                                         <div class="row mb-0">
