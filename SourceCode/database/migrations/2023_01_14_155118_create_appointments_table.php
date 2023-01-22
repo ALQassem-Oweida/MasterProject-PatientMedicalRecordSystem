@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('LName');
             $table->string('phone');
             $table->date('date');
+            $table->time('time');
             $table->timestamps();
 
         });

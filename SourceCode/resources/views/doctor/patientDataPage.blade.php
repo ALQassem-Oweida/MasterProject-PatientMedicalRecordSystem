@@ -18,7 +18,7 @@
 
                         </div>
                         <div class="row">
-                            <div class="col-md-4 col-xl-3">
+                            <div class="col-sm-10 col-md-12 col-xl-3">
                                 <div class="card mb-3">
                                     <div class="card-header">
                                         <h5 class="card-title mb-0">Profile Details</h5>
@@ -64,7 +64,101 @@
 
                                     <hr class="my-0" />
                                     <div class="card-body">
-                                        <h5 class="h6 card-title">Elsewhere</h5>
+                                        <h5 class="h6 card-title">
+
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#appointmentPopUp">
+                                                Add an appointment
+                                            </button>
+
+                                            <!-- Modal -->
+                                            <div class="modal fade-centered" id="appointmentPopUp" tabindex="-1"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                                                Add an appointment
+                                                            </h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form action="{{ route('appointments.store') }}" method="post">
+                                                                @csrf
+
+                                                                <input type="hidden" class="form-control" id="user_id"
+                                                                    name="user_id" value={{ $row->userinfo->user_info_relation }}
+                                                                    >
+                                                                <input type="hidden" class="form-control" id="doctor_id"
+                                                                    name="doctor_id" value={{ Auth::user()->id }}
+                                                                    >
+
+                                                                    <div class="form-group">
+                                                                        <label for="national_id">National ID</label>
+                                                                        <input type="text" class="form-control"
+                                                                            id="national_id" name="national_id"
+                                                                            value={{ $row->national_id }} >
+                                                                    </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="Fname">First Name:</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="FName" name="FName"
+                                                                        value={{ $row->userinfo->FName }} >
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="Lname">Last Name:</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="LName" name="LName"
+                                                                        value={{ $row->userinfo->LName }} >
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="phone">Phone Number:</label>
+                                                                    <input type="tel" class="form-control"
+                                                                        id="phone" name="phone"
+                                                                        value={{ $row->phone }} >
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="appointment_date">Appointment Date:</label>
+                                                                    <input type="date" class="form-control"
+                                                                        id="appointment_date" name="appointment_date"
+                                                                        required>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="appointment_time">Appointment Time:</label>
+                                                                    <input type="time" class="form-control"
+                                                                        id="appointment_time" name="appointment_time"
+                                                                        required>
+                                                                </div>
+
+
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Close</button>
+                                                            <button type="submit" class="btn btn-primary">Set the
+                                                                appointment</button>
+                                                        </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+
+                                        </h5>
                                         <ul class="list-unstyled mb-0">
                                             {{-- <li class="mb-1"><a href="#">staciehall.co</a></li>
                                             <li class="mb-1"><a href="#">Twitter</a></li>

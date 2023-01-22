@@ -19,19 +19,11 @@ class AppointmentController extends Controller
     {
 
         $user_id=Auth::user()->id;
-        $appointments=Appointment::where('doctor_id',$user_id)->get();
+        $appointments=Appointment::where('doctor_id',$user_id)->paginate(10);
         return view('doctor.appointments',['appointments'=>$appointments]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -41,30 +33,32 @@ class AppointmentController extends Controller
      */
     public function store(StoreappointmentRequest $request)
     {
-        //
+        
+      
+        $appointment = new Appointment();
+
+        $appointment->user_id = $request->user_id;
+        $appointment->doctor_id = $request->doctor_id;
+        $appointment->national_id = $request->national_id;
+        $appointment->FName = $request->FName;
+        $appointment->LName = $request->LName;
+        $appointment->phone = $request->phone;
+        $appointment->date = $request->appointment_date;
+        $appointment->time = $request->appointment_time;
+        
+
+        $appointment->save();
+
+        return redirect('appointments')->with('success', 'Appointments Data Add successfully');
+
+
+
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\appointment  $appointment
-     * @return \Illuminate\Http\Response
-     */
-    public function show(appointment $appointment)
-    {
-        //
-    }
+   
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\appointment  $appointment
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(appointment $appointment)
-    {
-        //
-    }
+
 
     /**
      * Update the specified resource in storage.
@@ -73,9 +67,15 @@ class AppointmentController extends Controller
      * @param  \App\Models\appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateappointmentRequest $request, appointment $appointment)
+    public function update(UpdateappointmentRequest $request,$id)
     {
-        //
+        Appointment::where('id', $id)->update([
+            'date' => $request->appointment_date,
+            'time' => $request->appointment_time
+          
+        ]);
+   
+        return redirect('appointments')->with('success', ' Appointment Data updated successfully');
     }
 
     /**
@@ -84,8 +84,12 @@ class AppointmentController extends Controller
      * @param  \App\Models\appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(appointment $appointment)
+    public function destroy($id)
     {
-        //
+       
+
+        $appointmentDestroy = Appointment::find($id);
+        $appointmentDestroy->destroy($id);
+        return redirect('appointments')->with('success', 'Appointment Data deleted successfully');
     }
 }

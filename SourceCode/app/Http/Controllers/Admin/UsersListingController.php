@@ -20,7 +20,7 @@ class UsersListingController extends Controller
      */
     public function index()
     {
-        $users = User::where('user_role',2)->paginate(3);
+        $users = User::where('user_role',2)->paginate(10);
         $user_infos=User_info::get()->all();
  
 
@@ -30,7 +30,7 @@ class UsersListingController extends Controller
     public function search(Request $request)
     {
         $query = $request->input('query');
-        $users = User::where('national_id', 'like', "%$query%")->paginate(3);
+        $users = User::where('national_id', 'like', "%$query%")->paginate(10);
         $user_infos = User_info::get()->all();
 
         return view('admin.usersList',compact('users'));
