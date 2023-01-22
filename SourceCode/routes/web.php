@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UsersListingController;
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\Doctor\AppointmentController as DoctorAppointmentController;
 use App\Http\Controllers\Doctor\PatientListingController;
 use App\Http\Controllers\MedicalHistory;
 use App\Http\Controllers\Medications;
@@ -64,6 +66,8 @@ Route::middleware('role:3')->group(function () {
     Route::get('/doctor_dashboard', 'App\Http\Controllers\Doctor\DashboardController@index');
     Route::resource('/patientList', PatientListingController::class);
     Route::get('/search', 'App\Http\Controllers\Doctor\PatientListingController@search');
+    Route::resource('/patiendatapage', PatientListingController::class);
+    Route::resource('/appointments', DoctorAppointmentController::class);
    
    
  

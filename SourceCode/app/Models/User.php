@@ -55,6 +55,10 @@ class User extends Authenticatable
         return $this->hasOne(user_info::class,'user_info_relation');
     }
 
+    
+    public function medicalhistory(){
+        return $this->hasOne(medical_history::class,'user_id');
+    }
 
 
 

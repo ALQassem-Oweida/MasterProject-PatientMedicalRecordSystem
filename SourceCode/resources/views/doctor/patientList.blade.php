@@ -21,30 +21,24 @@
             <table class="table table-striped">
            
                 <thead>
-                    <th>National_Number</th>
-                    <th>Name</th>
-                    <th>email</th>
-                    <th>Phone</th>
-                    <th></th>
-                    <th></th>
+                    <th scope="col">National_Number</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">email</th>
+                    <th scope="col">Phone</th>
+            
 
                 </thead>
                 <tbody>
                     @foreach ($users as $row)
                         <tr>
-                            <td>{{ $row->national_id }}</td>
+                            <th scope="row"><a href="{{ route('patiendatapage.show', $row->id) }}">{{ $row->national_id }}</a></td>
                             <td>{{ $row->userinfo->FName }}</td>
                             <td>{{ $row->email }}</td>
                             <td>{{ $row->phone }}</td>
 
                             {{-- <td><a href="{{ route('admin.users.edit', $row->id) }}" class="btn btn-warning btn-sm">Edit</a></td> --}}
 
-                            <form class="float-end" method="post" action="{{ route('patientList.destroy', $row->id) }}">
-                                @csrf
-                                @method('DELETE')
-                                <td><input onclick="return confirm('Are you sure you want to delete this user?')"
-                                        type="submit" class="btn btn-danger btn-sm" value="Delete" /></td>
-                            </form> 
+                    
 
 
 

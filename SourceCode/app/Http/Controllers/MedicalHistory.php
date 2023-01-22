@@ -18,9 +18,6 @@ class MedicalHistory extends Controller
     {
         $user_id=Auth::user()->id;
         $m_infos = medical_history::where('user_id',$user_id)->paginate(4);
-       
- 
-
         return view('Data.medical_histories',['m_infos'=>$m_infos]);
     }
 
