@@ -18,6 +18,7 @@
             <button type="submit">Search</button>
         </form>
         @if (Auth::check())
+        <div class="table-responsive">
             <table class="table table-striped">
            
                 <thead>
@@ -52,6 +53,7 @@
                     @endforeach
                 </tbody>
             </table>
+        </div>
             <span>
 
                 {{$users->links()}}

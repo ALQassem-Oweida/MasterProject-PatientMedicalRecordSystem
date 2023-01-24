@@ -34,15 +34,7 @@ class MedicalHistory extends Controller
 
 
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -52,7 +44,28 @@ class MedicalHistory extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+          
+        $recored = new medical_history();
+
+        $recored->user_id = $request->user_id;
+        $recored->add_by = $request->doctor_id;
+        $recored->event_type = $request->event_type;
+        $recored->event_description = $request->event_description;
+        $recored->medication_name = $request->medication_name;
+        $recored->event_date = $request->event_date;
+        $recored->dosage = $request->dosage;
+        $recored->frequency = $request->frequency;
+        $recored->allergy = $request->allergy;
+        
+
+        $recored->save();
+
+        return redirect('patiendatapage')->with('success', 'Appointments Data Add successfully');
+
+
+
+
     }
 
     /**

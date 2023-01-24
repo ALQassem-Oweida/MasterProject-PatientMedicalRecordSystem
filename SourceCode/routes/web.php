@@ -68,6 +68,11 @@ Route::middleware('role:3')->group(function () {
     Route::get('/search', 'App\Http\Controllers\Doctor\PatientListingController@search');
     Route::resource('/patiendatapage', PatientListingController::class);
     Route::resource('/appointments', DoctorAppointmentController::class);
+    Route::get('/searchappointment', 'App\Http\Controllers\Doctor\AppointmentController@search');
+    Route::post('/filterappointment', 'App\Http\Controllers\Doctor\AppointmentController@getData');
+    Route::resource('/addmedicalrecord', MedicalHistory::class);
+
+
    
    
  

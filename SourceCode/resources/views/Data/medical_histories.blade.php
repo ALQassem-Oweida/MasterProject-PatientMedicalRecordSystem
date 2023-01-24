@@ -5,7 +5,7 @@
 
 
 
-
+<div class="table-responsive">
 <table class="table table-striped">
            
     <tr>
@@ -32,6 +32,7 @@
         @endforeach
     </tbody>
 </table>
+</div>
 <span>
 
     {{$m_infos->links()}}

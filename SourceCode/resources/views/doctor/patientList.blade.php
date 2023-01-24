@@ -3,10 +3,7 @@
 
 
     <div class="container">
-        <form action="/search" method="get">
-            <input type="text" name="query" placeholder="Enter the national id">
-            <button type="submit">Search</button>
-        </form>
+       
 
         @if ($message = Session::get('success'))
             <div class="alert alert-success text-center">
@@ -16,8 +13,16 @@
 
 
         <h1 class="h3 mb-3"><strong>All Patients</strong></h1>
+
+        <form action="/search" method="get">
+            <div class="form-group">
+            <input style="padding-bottom: 5px" type="text" name="query" placeholder="Enter the national id">
+            <button type="submit" class="btn btn-info">Search</button>
+            </div>
+        </form>
      
         @if (Auth::check())
+        <div class="table-responsive">
             <table class="table table-striped">
            
                 <thead>
@@ -46,6 +51,7 @@
                     @endforeach
                 </tbody>
             </table>
+        </div>
             <span>
 
                 {{$users->links()}}

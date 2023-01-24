@@ -13,18 +13,20 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('medical_histories', function (Blueprint $table) {
+        Schema::create('appointments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('event_type');
-            $table->date('event_date');
-            $table->string('event_description');
-            $table->string('medication_name');
-            $table->string('dosage');
-            $table->string('frequency');
-            $table->string('allergy');
-
+            $table->foreignId('doctor_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('national_id');
+            $table->string('FName');
+            $table->string('LName');
+            $table->string('phone');
+            $table->date('date');
+            $table->time('time');
+            $table->bigInteger('status')->default(0);
+            $table->string('cancellation_reason')->nullable();
             $table->timestamps();
+
         });
     }
 
@@ -35,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('medical_histories');
+        Schema::dropIfExists('appointments');
     }
 };

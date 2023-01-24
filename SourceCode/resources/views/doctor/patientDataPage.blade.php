@@ -66,17 +66,25 @@
                                     <div class="card-body">
                                         <h5 class="h6 card-title">
 
-                                            <!-- Button trigger modal -->
+                                            <!-- Button trigger modal add appointment -->
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                 data-bs-target="#appointmentPopUp">
                                                 Add an appointment
                                             </button>
+                                        </h5>
+                                        <h5 class="h6 card-title">
+                                            <!-- Button trigger modal add recored -->
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#addRecPopUp">
+                                                Add a recoured
+                                            </button>
+                                        </h5>
 
                                             <!-- Modal -->
-                                            <div class="modal fade-centered" id="appointmentPopUp" tabindex="-1"
+                                            <div class="modal fade" id="appointmentPopUp" tabindex="-1"
                                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
 
-                                                <div class="modal-dialog">
+                                                <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h1 class="modal-title fs-5" id="exampleModalLabel">
@@ -86,42 +94,42 @@
                                                                 aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form action="{{ route('appointments.store') }}" method="post">
+                                                            <form action="{{ route('appointments.store') }}"
+                                                                method="post">
                                                                 @csrf
 
                                                                 <input type="hidden" class="form-control" id="user_id"
-                                                                    name="user_id" value={{ $row->userinfo->user_info_relation }}
-                                                                    >
+                                                                    name="user_id"
+                                                                    value={{ $row->userinfo->user_info_relation }}>
                                                                 <input type="hidden" class="form-control" id="doctor_id"
-                                                                    name="doctor_id" value={{ Auth::user()->id }}
-                                                                    >
+                                                                    name="doctor_id" value={{ Auth::user()->id }}>
 
-                                                                    <div class="form-group">
-                                                                        <label for="national_id">National ID</label>
-                                                                        <input type="text" class="form-control"
-                                                                            id="national_id" name="national_id"
-                                                                            value={{ $row->national_id }} >
-                                                                    </div>
+                                                                <div class="form-group">
+                                                                    <label for="national_id">National ID</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="national_id" name="national_id"
+                                                                        value={{ $row->national_id }}>
+                                                                </div>
 
                                                                 <div class="form-group">
                                                                     <label for="Fname">First Name:</label>
                                                                     <input type="text" class="form-control"
                                                                         id="FName" name="FName"
-                                                                        value={{ $row->userinfo->FName }} >
+                                                                        value={{ $row->userinfo->FName }}>
                                                                 </div>
 
                                                                 <div class="form-group">
                                                                     <label for="Lname">Last Name:</label>
                                                                     <input type="text" class="form-control"
                                                                         id="LName" name="LName"
-                                                                        value={{ $row->userinfo->LName }} >
+                                                                        value={{ $row->userinfo->LName }}>
                                                                 </div>
 
                                                                 <div class="form-group">
                                                                     <label for="phone">Phone Number:</label>
                                                                     <input type="tel" class="form-control"
                                                                         id="phone" name="phone"
-                                                                        value={{ $row->phone }} >
+                                                                        value={{ $row->phone }}>
                                                                 </div>
 
                                                                 <div class="form-group">
@@ -152,19 +160,103 @@
                                                 </div>
                                             </div>
 
+                                              <!-- Modal -->
+                                            <div class="modal fade" id="addRecPopUp" tabindex="-1"
+                                              aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                                              <div class="modal-dialog modal-dialog-centered">
+                                                  <div class="modal-content">
+                                                      <div class="modal-header">
+                                                          <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                                              Add a recored
+                                                          </h1>
+                                                          <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                              aria-label="Close"></button>
+                                                      </div>
+                                                      <div class="modal-body">
+                                                          <form action="{{ route('addmedicalrecord.store') }}"
+                                                              method="post">
+                                                              @csrf
+
+                                                              <input type="hidden" class="form-control" id="user_id"
+                                                                  name="user_id"
+                                                                  value={{ $row->userinfo->user_info_relation }}>
+                                                              <input type="hidden" class="form-control" id="doctor_id"
+                                                                  name="doctor_id" value={{ Auth::user()->id }}>
+
+                                                              <div class="form-group">
+                                                                  <label for="national_id">event_type</label>
+                                                                  <input type="text" class="form-control"
+                                                                      id="event_type" name="event_type"
+                                                                      >
+                                                              </div>
+
+                                                              <div class="form-group">
+                                                                  <label for="Fname">event_description</label>
+                                                                  <input type="text" class="form-control"
+                                                                      id="event_description" name="event_description"
+                                                                      >
+                                                              </div>
+
+                                                              <div class="form-group">
+                                                                  <label for="Lname">medication_name</label>
+                                                                  <input type="text" class="form-control"
+                                                                      id="medication_name" name="medication_name"
+                                                                     >
+                                                              </div>
+
+                                                             
+
+                                                              <div class="form-group">
+                                                                  <label for="appointment_date">event_date</label>
+                                                                  <input type="date" class="form-control"
+                                                                      id="event_date" name="event_date"
+                                                                      required>
+                                                              </div>
+
+                                                              <div class="form-group">
+                                                                  <label for="appointment_time">dosage</label>
+                                                                  <input type="text" class="form-control"
+                                                                      id="dosage" name="dosage"
+                                                                      required>
+                                                              </div>
+
+                                                              <div class="form-group">
+                                                                <label for="appointment_time">frequency</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="frequency" name="frequency"
+                                                                    required>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="appointment_time">allergy</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="allergy" name="allergy"
+                                                                    required>
+                                                            </div>
+
+
+
+                                                      </div>
+                                                      <div class="modal-footer">
+                                                          <button type="button" class="btn btn-secondary"
+                                                              data-bs-dismiss="modal">Close</button>
+                                                          <button type="submit" class="btn btn-primary">Set the
+                                                              appointment</button>
+                                                      </div>
+                                                      </form>
+                                                  </div>
+                                              </div>
+                                          </div>
 
 
 
 
 
 
-                                        </h5>
+
+                                      
                                         <ul class="list-unstyled mb-0">
-                                            {{-- <li class="mb-1"><a href="#">staciehall.co</a></li>
-                                            <li class="mb-1"><a href="#">Twitter</a></li>
-                                            <li class="mb-1"><a href="#">Facebook</a></li>
-                                            <li class="mb-1"><a href="#">Instagram</a></li>
-                                            <li class="mb-1"><a href="#">LinkedIn</a></li> --}}
                                         </ul>
                                     </div>
                                 </div>
@@ -180,7 +272,8 @@
 
                                         <div class="d-flex align-items-start">
 
-                                            <div class="flex-grow-1">
+                                          
+                                                <div class="table-responsive">
                                                 <table class="table table-striped">
                                                     <tbody>
                                                         <tr>
@@ -208,19 +301,12 @@
                                                         @endif
                                                     </tbody>
                                                 </table>
+                                                </div>
 
 
-                                            </div>
+                                          
                                         </div>
 
-
-
-
-
-
-                                        {{-- <div class="d-grid">
-                                            <a href="#" class="btn btn-primary">Load more</a>
-                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
@@ -229,9 +315,7 @@
                     </div>
                 </main>
             @endforeach
-            {{-- <span>
-        {{ $users->links() }}
-    </span> --}}
+
 
     </div>
     @endif
