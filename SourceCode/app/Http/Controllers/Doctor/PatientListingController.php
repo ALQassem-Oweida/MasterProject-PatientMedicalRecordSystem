@@ -7,6 +7,7 @@ use App\Models\medical_history;
 use App\Models\User;
 use App\Models\User_info;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PatientListingController extends Controller
 {
@@ -69,8 +70,9 @@ class PatientListingController extends Controller
     public function show($id)
     {
         $users = User::where('id',$id)->get();
-        // $user_infos = User_info::get()->all();
-        $m_infos = medical_history::where('user_id',$id)->get();
+        $doctor=User_info::where('user_info_relation',Auth::user()->id)->get();
+        $m_infos= medical_history::where('user_id',$id)->paginate(4);;
+     
 
         return view('doctor.patientDataPage', compact('users'),["m_infos"=>$m_infos]);
     }

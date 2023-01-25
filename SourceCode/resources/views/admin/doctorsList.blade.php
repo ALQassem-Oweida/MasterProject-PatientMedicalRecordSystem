@@ -14,7 +14,7 @@
             <div class="row">
                 {{-- Searche bar --}}
                 <div class="d-flex justify-content-end" style="width: 100%">
-                    <form action="/searchadmin" method="get">
+                    <form action="/searchdocadmin" method="get">
     
                         <div class="form-group">
                             <input style="padding-bottom: 5px;padding-left: 15px" type="text" name="query"
@@ -54,8 +54,8 @@
                             <form class="float-end" method="post" action="{{ route('userList.destroy', $row->id) }}">
                                 @csrf
                                 @method('DELETE')
-                                <td><input onclick="return confirm('Are you sure you want to Disable this user?')"
-                                        type="submit" class="btn btn-danger btn-sm" value="Disable" /></td>
+                                <td><input onclick="return confirm('Are you sure you want to delete this user?')"
+                                        type="submit" class="btn btn-danger btn-sm" value="Delete" /></td>
                             </form> 
 
 

@@ -1,7 +1,7 @@
 @extends('doctor.master_doctor')
 @section('doctor_content')
     <div class="row">
-        {{-- <div class="col-xl-8 col-xxl-9 d-flex">
+         <div class="col-xl-8 col-xxl-9 d-flex">
             <div class="w-100">
                 <div class="row">
                     <div class="col-sm-4">
@@ -9,7 +9,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col mt-0">
-                                        <h5 class="card-title"># Of Users</h5>
+                                        <h5 class="card-title">My appointments </h5>
                                     </div>
 
                                     <div class="col-auto">
@@ -18,7 +18,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h1 class="mt-1 mb-3">{{$usersCount}}</h1>
+                                <h1 class="mt-1 mb-3">
+                                    {{$appointmentsCount}}
+                                
+                                </h1>
                                 <div class="mb-0">
                                     <span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -3.65% </span>
                                     <span class="text-muted">Since last week</span>
@@ -52,7 +55,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col mt-0">
-                                        <h5 class="card-title"># Of Doctors</h5>
+                                        <h5 class="card-title"># Of My Pataents</h5>
                                     </div>
 
                                     <div class="col-auto">
@@ -61,7 +64,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h1 class="mt-1 mb-3">00000</h1>
+                                <h1 class="mt-1 mb-3">
+                                    
+                                    {{$patentsCount}}
+
+                                </h1>
                                 <div class="mb-0">
                                     <span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 6.65% </span>
                                     <span class="text-muted">Since last week</span>
@@ -133,7 +140,7 @@
                     </div>	
                 </div>
             </div>
-        </div> --}}
+        </div> 
 		
 
         <div class="col col-md-12 col-xxl-3 d-flex order-1 order-xxl-1">

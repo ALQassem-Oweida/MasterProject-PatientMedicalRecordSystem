@@ -34,6 +34,7 @@
 
                 </thead>
                 <tbody>
+                  
                     @foreach ($users as $row)
                         <tr>
                             <th scope="row"><a href="{{ route('patiendatapage.show', $row->id) }}">{{ $row->national_id }}</a></td>

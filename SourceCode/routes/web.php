@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\DoctorListingController;
 use App\Http\Controllers\Admin\UsersListingController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\Doctor\AppointmentController as DoctorAppointmentController;
@@ -38,9 +39,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('/userprofile', UserPublicController::class);
 Route::resource('/medicalhistory', MedicalHistory::class);
 Route::resource('/medicalhistory2', Medications::class);
-
-
-
 Route::get('/user_dashboard', 'App\Http\Controllers\User\DashboardController@index')->middleware('role:2');
 
 
@@ -53,7 +51,9 @@ Route::get('/user_dashboard', 'App\Http\Controllers\User\DashboardController@ind
 Route::middleware('role:1')->group(function () {
     Route::get('/admin_dashboard', 'App\Http\Controllers\Admin\DashboardController@index');
     Route::resource('/userList', UsersListingController::class);
+    Route::resource('/doctorList', DoctorListingController::class);
     Route::get('/searchadmin', 'App\Http\Controllers\Admin\UsersListingController@search');
+    Route::get('/searchdocadmin', 'App\Http\Controllers\Admin\DoctorListingController@search');
    
    
  

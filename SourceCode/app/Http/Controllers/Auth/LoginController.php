@@ -27,6 +27,9 @@ class LoginController extends Controller
       return '/';
 
     }else{
+
+
+      
     $role = Auth::user()->user_role;
     switch ($role) {
       
@@ -46,6 +49,7 @@ class LoginController extends Controller
         return '/';
         break;
     }
+  
   }
   }
 

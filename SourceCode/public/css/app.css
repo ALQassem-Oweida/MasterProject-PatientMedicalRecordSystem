@@ -466,7 +466,9 @@ progress {
     .container,
     .container-md,
     .container-sm {
-        max-width: 720px
+        max-width: 720px;
+     
+        
     }
 }
 

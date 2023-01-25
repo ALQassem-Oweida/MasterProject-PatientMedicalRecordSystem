@@ -6,7 +6,7 @@ use App\Models\User;
 use App\Models\User_info;
 use Illuminate\Http\Request;
 
-class UsersListingController extends Controller
+class DoctorListingController extends Controller
 {
 
     public function __construct() {
@@ -20,21 +20,22 @@ class UsersListingController extends Controller
      */
     public function index()
     {
-        $users = User::where('user_role',2)->paginate(10);
+        $users = User::where('user_role',3)->paginate(10);
         $user_infos=User_info::get()->all();
  
 
-        return view('admin.usersList',compact('users'));
+        return view('admin.doctorsList',compact('users'));
     }
 
     public function search(Request $request)
     {
         $query = $request->input('query');
-        $users = User::where('national_id', 'like', "%$query%")
-        ->where('user_role',2)->paginate(10);
+        $users = User::where('user_role',3)
+        ->where('national_id', 'like', "%$query%")
+        ->paginate(10);
         $user_infos = User_info::get()->all();
 
-        return view('admin.usersList',compact('users'));
+        return view('admin.doctorsList',compact('users'));
     }
     /**
      * Show the form for creating a new resource.
@@ -123,12 +124,10 @@ class UsersListingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    public function destroy($id)
     {
-    
-        User::where('id', $id)->update([
-            'status' => '1',
-        ]);
-        return redirect()->back()->with('success', 'User Disabled successfully');
+        $userDestroy = User::find($id);
+        $userDestroy->destroy($id);
+        return redirect('admin/usersList')->with('success', 'User Data deleted successfully');
     }
 }

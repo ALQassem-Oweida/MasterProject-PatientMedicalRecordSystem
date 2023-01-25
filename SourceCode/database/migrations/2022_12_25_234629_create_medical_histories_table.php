@@ -19,12 +19,12 @@ return new class extends Migration
             $table->string('event_type');
             $table->date('event_date');
             $table->string('event_description');
-            $table->string('medication_name');
-            $table->string('dosage');
-            $table->string('frequency');
-            $table->string('allergy');
-            $table->string('add_by')->nullable();
-            $table->string('Edited_by')->nullable();
+            $table->string('medication_name')->nullable();
+            $table->string('dosage')->nullable();
+            $table->string('frequency')->nullable();
+            $table->string('allergy')->nullable();
+            $table->foreignId('add_by')->nullable()->references('id')->on('users')->onDelete('cascade');;
+            $table->foreignId('Edited_by')->nullable()->references('id')->on('users')->onDelete('cascade');;
 
             $table->timestamps();
         });

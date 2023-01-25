@@ -10,6 +10,7 @@ class DashboardController extends Controller {
   }
   public function index() {
     $usersCount = User::where('user_role',2)->count();
-    return view('admin/admindash',['usersCount'=>$usersCount]);
+    $doctorsCount = User::where('user_role',3)->count();
+    return view('admin/admindash',['usersCount'=>$usersCount,'doctorsCount'=>$doctorsCount]);
   }
 }

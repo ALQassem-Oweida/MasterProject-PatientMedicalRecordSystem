@@ -1,15 +1,23 @@
 <?php
 namespace App\Http\Controllers\Doctor;
 use App\Http\Controllers\Controller;
+use App\Models\Appointment;
+use App\Models\medical_history;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller {
   public function __construct() {
     $this->middleware('auth');
   }
   public function index() {
-    $usersCount = User::where('user_role',2)->count();
-    return view('doctor/doctorDash',['usersCount'=>$usersCount]);
+    $appointmentsCount = Appointment::where('doctor_id',Auth::user()->id)->count();
+    $patentsCount = medical_history::where('add_by',Auth::user()->id)->count();
+    return view('doctor/doctorDash',['appointmentsCount'=>$appointmentsCount,
+    'patentsCount'=>$patentsCount,
+  
+  
+  ]);
   }
 }

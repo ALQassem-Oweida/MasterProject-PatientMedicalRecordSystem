@@ -26,9 +26,6 @@ class MedicalHistory extends Controller
     {
         $user_id=Auth::user()->id;
         $m_infos = medical_history::where('user_id',$user_id)->paginate(4);
-       
- 
-
         return view('Data.medications',['m_infos'=>$m_infos]);
     }
 
@@ -57,13 +54,15 @@ class MedicalHistory extends Controller
         $recored->dosage = $request->dosage;
         $recored->frequency = $request->frequency;
         $recored->allergy = $request->allergy;
+        $recored->add_by = $request->doctor_id;
         
 
         $recored->save();
 
-        return redirect('patiendatapage')->with('success', 'Appointments Data Add successfully');
+        return redirect()->back()
+        ->with('success',' A new recored add successfully');
 
-
+        
 
 
     }
@@ -79,16 +78,7 @@ class MedicalHistory extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\user_role  $user_role
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(user_role $user_role)
-    {
-        //
-    }
+
 
     /**
      * Update the specified resource in storage.
@@ -97,9 +87,24 @@ class MedicalHistory extends Controller
      * @param  \App\Models\user_role  $user_role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, user_role $user_role)
+    public function update(Request $request, $id)
     {
-        //
+    
+        medical_history::where('id', $id)->update([
+            'medication_name' => $request->medication_name,
+            'dosage' => $request->dosage,
+            'frequency' => $request->frequency,
+            'allergy' => $request->allergy,
+            'edited_by' => $request->doctor_id
+          
+        ]);
+   
+        return redirect()->back()->with('success', ' Recored Data updated successfully');
+
+
+
+
+
     }
 
 

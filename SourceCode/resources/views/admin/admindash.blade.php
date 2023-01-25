@@ -61,7 +61,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h1 class="mt-1 mb-3">00000</h1>
+                                <h1 class="mt-1 mb-3">{{$doctorsCount}}</h1>
                                 <div class="mb-0">
                                     <span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 6.65% </span>
                                     <span class="text-muted">Since last week</span>
