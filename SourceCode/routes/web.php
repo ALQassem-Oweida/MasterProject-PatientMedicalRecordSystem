@@ -22,17 +22,11 @@ use App\Http\Controllers\UserPublicController;
 Route::get('/', function () {
     return view('layouts.welcome');
 });
-
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
@@ -56,9 +50,6 @@ Route::middleware('role:1')->group(function () {
     Route::get('/searchdocadmin', 'App\Http\Controllers\Admin\DoctorListingController@search');
     Route::get('/filterusers', 'App\Http\Controllers\Admin\UsersListingController@getData');
     Route::get('/filterdoctors', 'App\Http\Controllers\Admin\DoctorListingController@getData');
-   
-   
- 
 });
 
 
@@ -73,9 +64,4 @@ Route::middleware('role:3')->group(function () {
     Route::get('/searchappointment', 'App\Http\Controllers\Doctor\AppointmentController@search');
     Route::post('/filterappointment', 'App\Http\Controllers\Doctor\AppointmentController@getData');
     Route::resource('/addmedicalrecord', MedicalHistory::class);
-
-
-   
-   
- 
 });
