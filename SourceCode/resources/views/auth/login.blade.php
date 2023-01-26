@@ -1,18 +1,19 @@
 @extends('layouts.app')
 @section('content')
     <style>
-        body{
-    background-color: white;
-}
-        #app > main > section > div > div > div > div > div > div {
-      
-            box-shadow: 20px 20px 50px 10px rgba(83, 83, 83, 0.668) ;
+        body {
+            background-color: white;
+        }
+
+        #app>main>section>div>div>div>div>div>div {
+
+            box-shadow: 20px 20px 50px 10px rgba(83, 83, 83, 0.668);
 
         }
 
         .gradient-form {
 
-          
+
 
             height: 100px;
         }
@@ -39,14 +40,20 @@
 
 
     <section class="gradient-form bg-white" style="background-color: #eee;">
+      
         <div class="container   bg-white">
+         
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-xl-10">
                     <div class="card rounded-3 text-black mt-3 mb-5">
                         <div class="row g-0">
                             <div class="col-lg-6">
                                 <div class="card-body p-md-5 mx-md-4">
-
+                                    @if (session('error'))
+                                    <div class="alert alert-danger">
+                                        {{ session('error') }}
+                                    </div>
+                                @endif
                                     <div class="text-center">
                                         <img src="./images/logo.png" style="width: 185px;" alt="logo">
 
@@ -57,8 +64,9 @@
                                         <div class="form-outline ">
                                             <label class="form-label" for="form2Example11">National ID</label>
                                             <input id="national_id" type="text"
-                                                class="form-control @error('national_id') is-invalid @enderror" name="national_id"
-                                                value="{{ old('national_id') }}" required autocomplete="national_id" autofocus />
+                                                class="form-control @error('national_id') is-invalid @enderror"
+                                                name="national_id" value="{{ old('national_id') }}" required
+                                                autocomplete="national_id" autofocus />
                                             @error('national_id')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>

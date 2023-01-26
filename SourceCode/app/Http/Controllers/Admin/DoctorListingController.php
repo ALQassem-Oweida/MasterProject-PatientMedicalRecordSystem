@@ -107,6 +107,15 @@ class DoctorListingController extends Controller
 
 
 
+    public function getData(Request $request)
+{
+    $option = $request->statusCheck;
+  
+        $users= User::where('user_role',3)
+        ->where('status', $option)
+        ->paginate(5);
+    return view('admin.doctorsList',['users'=>$users]);
+}
 
 
 
@@ -124,10 +133,22 @@ class DoctorListingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $userDestroy = User::find($id);
-        $userDestroy->destroy($id);
-        return redirect('admin/usersList')->with('success', 'User Data deleted successfully');
+
+
+    if($request->status==1){
+        User::where('id', $id)
+        ->update([
+            'status' => '0',
+        ]);
+        return redirect()->back()->with('success', 'Doctor Disabled successfully');
+    }else{
+        User::where('id', $id)
+        ->update([
+            'status' => '1',
+        ]);
+        return redirect()->back()->with('success', 'Doctor Enabled successfully');
     }
+}
 }

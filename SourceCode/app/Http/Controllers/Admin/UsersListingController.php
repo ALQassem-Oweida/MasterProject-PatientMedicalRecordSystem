@@ -106,7 +106,15 @@ class UsersListingController extends Controller
 
 
 
-
+    public function getData(Request $request)
+{
+    $option = $request->statusCheck;
+  
+        $users= User::where('user_role',2)
+        ->where('status', $option)
+        ->paginate(5);
+    return view('admin.usersList',['users'=>$users]);
+}
 
 
 
@@ -125,10 +133,20 @@ class UsersListingController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-    
-        User::where('id', $id)->update([
-            'status' => '1',
+
+
+    if($request->status==1){
+        User::where('id', $id)
+        ->update([
+            'status' => '0',
         ]);
         return redirect()->back()->with('success', 'User Disabled successfully');
+    }else{
+        User::where('id', $id)
+        ->update([
+            'status' => '1',
+        ]);
+        return redirect()->back()->with('success', 'User Enabled successfully');
     }
+}
 }

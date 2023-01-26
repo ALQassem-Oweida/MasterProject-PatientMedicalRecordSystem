@@ -54,6 +54,8 @@ Route::middleware('role:1')->group(function () {
     Route::resource('/doctorList', DoctorListingController::class);
     Route::get('/searchadmin', 'App\Http\Controllers\Admin\UsersListingController@search');
     Route::get('/searchdocadmin', 'App\Http\Controllers\Admin\DoctorListingController@search');
+    Route::get('/filterusers', 'App\Http\Controllers\Admin\UsersListingController@getData');
+    Route::get('/filterdoctors', 'App\Http\Controllers\Admin\DoctorListingController@getData');
    
    
  
