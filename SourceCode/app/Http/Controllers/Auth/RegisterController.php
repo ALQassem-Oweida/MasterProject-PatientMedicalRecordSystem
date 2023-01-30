@@ -39,10 +39,10 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('guest');
+    // }
 
     /**
      * Get a validator for an incoming registration request.
@@ -70,11 +70,9 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        
 
-  
-       
-
-     return User::create([
+        $user=User::create([
             // 'name' => $data['name'],
             'phone' => $data['phone'],
             'national_id' => $data['national_id'],
@@ -83,5 +81,18 @@ class RegisterController extends Controller
             'user_role'=>$data['role'],
            
         ]);
+
+         $user->userinfo()->create([
+            'Fname' => null,
+            'Mname' => null,
+            'Lname' => null,
+            'national_id' => $data['national_id'],
+            'date_of_birth'=> null,
+            'address'=> null,
+        ]);
+
+        return  $user;
+
     }
+
 }

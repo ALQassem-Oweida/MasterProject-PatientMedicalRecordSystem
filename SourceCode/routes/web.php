@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\Admin\DashboardController;
+
 use App\Http\Controllers\Admin\DoctorListingController;
+use App\Http\Controllers\Admin\RegisterDocotorController;
 use App\Http\Controllers\Admin\UsersListingController;
-use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\Doctor\AppointmentController as DoctorAppointmentController;
 use App\Http\Controllers\Doctor\PatientListingController;
 use App\Http\Controllers\MedicalHistory;
@@ -29,11 +30,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
 Route::resource('/userprofile', UserPublicController::class);
 Route::resource('/medicalhistory', MedicalHistory::class);
 Route::resource('/medicalhistory2', Medications::class);
 Route::get('/user_dashboard', 'App\Http\Controllers\User\DashboardController@index')->middleware('role:2');
+Route::resource('/contactUs', ContactUsController::class);
 
 
 
@@ -50,6 +51,7 @@ Route::middleware('role:1')->group(function () {
     Route::get('/searchdocadmin', 'App\Http\Controllers\Admin\DoctorListingController@search');
     Route::get('/filterusers', 'App\Http\Controllers\Admin\UsersListingController@getData');
     Route::get('/filterdoctors', 'App\Http\Controllers\Admin\DoctorListingController@getData');
+    Route::resource('/registerdoctor',RegisterDocotorController::class);
 });
 
 

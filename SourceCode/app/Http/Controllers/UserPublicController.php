@@ -81,16 +81,4 @@ class UserPublicController extends Controller
     }
 
 
-           /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        // $bookingDestroy = Booking::find($id);
-        // $bookingDestroy->destroy($id);
-        // return redirect('userprofile')->with('success', 'Reservation Data deleted successfully');
-    }
 }

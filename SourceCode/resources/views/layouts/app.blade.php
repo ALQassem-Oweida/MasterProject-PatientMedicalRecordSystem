@@ -140,7 +140,7 @@
                     <li class="nav-item"><a class="nav-link">About Us</a></li>
                     <li class="nav-item"><a class="nav-link">Doctors</a></li>
                     <li class="nav-item"><a class="nav-link">News</a></li>
-                    <li class="nav-item"><a class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="/contactUs" class="nav-link">Contact</a></li>
 
                     @guest
                         @if (Route::has('login'))
