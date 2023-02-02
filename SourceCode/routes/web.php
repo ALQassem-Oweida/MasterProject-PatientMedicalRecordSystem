@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\UsersListingController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\Doctor\AppointmentController as DoctorAppointmentController;
 use App\Http\Controllers\Doctor\PatientListingController;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\MedicalHistory;
 use App\Http\Controllers\Medications;
 use Illuminate\Support\Facades\Auth;
@@ -20,9 +21,10 @@ use App\Http\Controllers\UserPublicController;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', function () {
-    return view('layouts.welcome');
-});
+
+
+    Route::resource('/', LandingController::class);
+
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Auth::routes();
