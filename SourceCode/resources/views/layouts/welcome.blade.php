@@ -3,15 +3,16 @@
     <div id="news-container">
       
             <marquee id="news-text" behavior="scroll" direction="left">
-                @for ($i = 0; $i < 20; $i++)
-                {{ $data['articles'][$i]['content'] }}&nbsp;&nbsp;&nbsp;
+                
+                @for ($i = 0; $i < count($data['articles']); $i++)
+                <span style="color: blue;font-weight: bold">{{$data['articles'][$i]['source']['name']}}</span> : {{ $data['articles'][$i]['description'] }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 @endfor
+               
             </marquee>
      
 
     </div>
-{{-- 
-    {{ $data['articles'][1]['content'] }} --}}
+
 
     <!-- intro Start -->
     <div class="container-fluid bg-primary py-5 mb-5 hero-header">
@@ -94,7 +95,7 @@
         <div class="Main_contactus">
             <h2 class="display-6 text-white pb-5">It's your health. Own it.</h2>
 
-            <button class="btn btn-light rounded-pill py-md-3 px-md-5 mx-2">Contact us</button>
+            <a type="button" href="/contactUs" class="btn btn-light rounded-pill py-md-3 px-md-5 mx-2">Contact us</a>
             <h6 class="display-12 text-white mb-md-4 pt-2">For more informations</h6>
         </div>
 

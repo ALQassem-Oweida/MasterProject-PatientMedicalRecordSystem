@@ -2,6 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    <?php date_default_timezone_set('Asia/Amman');  ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -83,7 +84,7 @@
                         support@medica.com</a>
                     <span class="text-body"> | </span>
                     <a class="text-decoration-none text-body px-3" href=""><i class="fa fa-calendar-plus-o"></i>
-                        {{ now()->format('H:i') }} {{ now()->format('l') }}</a>
+                        {{ date("H:i")}} {{ date('l') }} {{date("Y-m-d")}}</a>
                 </div>
             </div>
             <div class="col-md-6 text-center text-lg-end">

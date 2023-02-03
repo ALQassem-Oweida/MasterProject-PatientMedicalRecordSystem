@@ -20,7 +20,7 @@
                             style="width: 100px; height: 70px; transform: rotate(-15deg);">
                             <i class="fa fa-2x fa-location-arrow text-white" style="transform: rotate(15deg);"></i>
                         </div>
-                        <h6 class="mb-0">123 Street, New York, USA</h6>
+                        <h6 class="mb-0">Prs. Basmah St, Amman, Jordan</h6>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -30,7 +30,7 @@
                             style="width: 100px; height: 70px; transform: rotate(-15deg);">
                             <i class="fa fa-2x fa-phone text-white" style="transform: rotate(15deg);"></i>
                         </div>
-                        <h6 class="mb-0">+012 345 6789</h6>
+                        <h6 class="mb-0">00962 787 109 976</h6>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -40,7 +40,7 @@
                             style="width: 100px; height: 70px; transform: rotate(-15deg);">
                             <i class="fa fa-2x fa-envelope-open text-white" style="transform: rotate(15deg);"></i>
                         </div>
-                        <h6 class="mb-0">info@example.com</h6>
+                        <h6 class="mb-0">support@medica.com</h6>
                     </div>
                 </div>
             </div>

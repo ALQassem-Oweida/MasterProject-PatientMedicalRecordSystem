@@ -23,12 +23,8 @@ use App\Http\Controllers\UserPublicController;
 
 
 
-    Route::resource('/', LandingController::class);
+Route::resource('/', LandingController::class);
 
-Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -53,7 +49,7 @@ Route::middleware('role:1')->group(function () {
     Route::get('/searchdocadmin', 'App\Http\Controllers\Admin\DoctorListingController@search');
     Route::get('/filterusers', 'App\Http\Controllers\Admin\UsersListingController@getData');
     Route::get('/filterdoctors', 'App\Http\Controllers\Admin\DoctorListingController@getData');
-    Route::resource('/registerdoctor',RegisterDocotorController::class);
+    Route::resource('/registerdoctor', RegisterDocotorController::class);
 });
 
 
