@@ -47,20 +47,4 @@ class ContactUsController extends Controller
         return redirect('/contactUs')->with('success', "Your message has been successfully delivered");
     }
 
-   
-
-  
-
-  
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\contactus  $contactus
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(contactus $contactus)
-    {
-        //
-    }
 }

@@ -61,7 +61,7 @@
                                         @csrf
                                         <div class="form-outline ">
                                             <label class="form-label" for="form2Example11">ID</label>
-                                            <input id="national_id" type="text"
+                                            <input id="national_id" type="text" maxlength="10"
                                                 class="form-control @error('national_id') is-invalid @enderror"
                                                 name="national_id" value="{{ old('national_id') }}" required
                                                 autocomplete="national_id" autofocus />

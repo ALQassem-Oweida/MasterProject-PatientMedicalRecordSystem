@@ -50,7 +50,7 @@
                 </li>
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="pages-blank.html">
+                    <a class="sidebar-link" href="/userAppointments">
                         <i class="align-middle" data-feather="calendar"></i> <span class="align-middle">Appointments and
                             visits</span>
                     </a>

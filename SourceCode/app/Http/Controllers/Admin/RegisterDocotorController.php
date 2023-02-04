@@ -19,7 +19,11 @@ class RegisterDocotorController extends Controller
         $request->validate([
             'national_id' => ['required', 'regex:/(^[0-9]+$)+/', 'min:10', 'max:10', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            // 'password' => ['required', 'string', 'min:8', 'max:12', 'confirmed'],
+            'FName' => ['required', 'regex:(^[a-zA-Z]+$)'],
+            'MName' => ['required', 'regex:(^[a-zA-Z]+$)'],
+            'LName' => ['required', 'regex:(^[a-zA-Z]+$)'],
+            'date_of_birth' => ['required'],
+            'address' => ['required'],
         ]);
 
         $password = str::random(rand(8, 12));

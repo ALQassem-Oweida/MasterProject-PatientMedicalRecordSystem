@@ -30,6 +30,9 @@ class user_info extends Model
     //   return $this->belongsTo(User::class,'user_info_relation');
     // }
   
+    public function appointments(){
+        return $this->hasMany(Appointment::class,'doctor_id');
+    }
 
 
 

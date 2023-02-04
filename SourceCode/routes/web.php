@@ -11,31 +11,39 @@ use App\Http\Controllers\Doctor\PatientListingController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\MedicalHistory;
 use App\Http\Controllers\Medications;
+use App\Http\Controllers\User\userAppointmentController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserPublicController;
 
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-*/
 
 
+//********* Website Pages Routes *********//
 
 Route::resource('/', LandingController::class);
+Route::resource('/contactUs', ContactUsController::class);
+
+
+
+
+//********* Auth Routes *********//
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+
+
+//********* User Routes *********//
+
+Route::get('/user_dashboard', 'App\Http\Controllers\User\DashboardController@index')->middleware('role:2');
 Route::resource('/userprofile', UserPublicController::class);
 Route::resource('/medicalhistory', MedicalHistory::class);
 Route::resource('/medicalhistory2', Medications::class);
-Route::get('/user_dashboard', 'App\Http\Controllers\User\DashboardController@index')->middleware('role:2');
-Route::resource('/messages', MessagesListingController::class);
-Route::resource('/contactUs', ContactUsController::class);
-
+Route::resource('/userAppointments', userAppointmentController::class);
+Route::get('/searchUserAppointments', 'App\Http\Controllers\User\userAppointmentController@search');
+Route::post('/filterUserAppointments', 'App\Http\Controllers\User\userAppointmentController@getData');
 
 
 
@@ -51,11 +59,13 @@ Route::middleware('role:1')->group(function () {
     Route::get('/filterusers', 'App\Http\Controllers\Admin\UsersListingController@getData');
     Route::get('/filterdoctors', 'App\Http\Controllers\Admin\DoctorListingController@getData');
     Route::resource('/registerdoctor', RegisterDocotorController::class);
-    
     Route::get('/searchMessages', 'App\Http\Controllers\Admin\MessagesListingController@search');
     Route::get('/filterMessages', 'App\Http\Controllers\Admin\MessagesListingController@getData');
     Route::post('/update-status', 'App\Http\Controllers\Admin\MessagesListingController@updateStatus');
+    Route::resource('/messages', MessagesListingController::class);
 });
+
+
 
 
 //********* Doctors Routes *********//

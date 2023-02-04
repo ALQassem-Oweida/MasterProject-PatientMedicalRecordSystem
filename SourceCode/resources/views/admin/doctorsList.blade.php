@@ -139,7 +139,7 @@
                             <div class="col-md-6">
                                 <input id="national_id" type="text"
                                     class="form-control @error('national_id') is-invalid @enderror" name="national_id"
-                                    required autocomplete="national_id" autofocus value="{{ old('national_id') }}">
+                                    required autocomplete="national_id" autofocus value="{{ old('national_id') }}" maxlength="10">
 
                                 @error('national_id')
                                     <span class="invalid-feedback" role="alert">
