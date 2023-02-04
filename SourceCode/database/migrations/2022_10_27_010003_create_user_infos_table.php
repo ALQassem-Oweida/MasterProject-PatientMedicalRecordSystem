@@ -17,11 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('national_id')->unique();
             $table->string('FName')->nullable();
-            $table->string('MName')->nullable();;
-            $table->string('LName')->nullable();;
-            $table->date('date_of_birth')->nullable();;
-            $table->string('address')->nullable();;
-            $table->foreignId('user_info_relation')->references('id')->on('users')->onDelete('cascade');
+            $table->string('MName')->nullable();
+            $table->string('LName')->nullable();
+            $table->date('date_of_birth')->nullable();
+            $table->string('address')->nullable();
+            $table->foreignId('user_info_relation')->nullable()->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
    
 
