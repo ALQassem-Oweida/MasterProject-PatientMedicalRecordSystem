@@ -164,7 +164,13 @@
                                                  document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
-                                <a class="dropdown-item" href="{{ route('userprofile.index') }}">My Profile</a>
+
+                                <a class="dropdown-item"
+                                @if (Auth::user()->user_role === 2) href="{{ route('userprofile.index') }}" @endif
+                                @if (Auth::user()->user_role === 1) href="{{ route('userprofileAdmin.index') }}" @endif
+                                @if (Auth::user()->user_role === 3) href="{{ route('userprofileDoctor.index') }}" @endif  
+                                >My Profile</a>
+
                                 <a class="dropdown-item" @if (Auth::user()->user_role === 1) href="/admin_dashboard" @endif
                                     @if (Auth::user()->user_role === 2) href="/user_dashboard" @endif
                                     @if (Auth::user()->user_role === 3) href="/doctor_dashboard" @endif>Dashboard</a>

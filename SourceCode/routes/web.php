@@ -37,13 +37,15 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //********* User Routes *********//
 
-Route::get('/user_dashboard', 'App\Http\Controllers\User\DashboardController@index')->middleware('role:2');
+Route::middleware('role:2')->group(function () {
+Route::get('/user_dashboard', 'App\Http\Controllers\User\DashboardController@index');
 Route::resource('/userprofile', UserPublicController::class);
 Route::resource('/medicalhistory', MedicalHistory::class);
 Route::resource('/medicalhistory2', Medications::class);
 Route::resource('/userAppointments', userAppointmentController::class);
 Route::get('/searchUserAppointments', 'App\Http\Controllers\User\userAppointmentController@search');
 Route::post('/filterUserAppointments', 'App\Http\Controllers\User\userAppointmentController@getData');
+});
 
 
 
@@ -51,6 +53,7 @@ Route::post('/filterUserAppointments', 'App\Http\Controllers\User\userAppointmen
 //********* Admin Routes *********//
 
 Route::middleware('role:1')->group(function () {
+    Route::resource('/userprofileAdmin', UserPublicController::class);
     Route::get('/admin_dashboard', 'App\Http\Controllers\Admin\DashboardController@index');
     Route::resource('/userList', UsersListingController::class);
     Route::resource('/doctorList', DoctorListingController::class);
@@ -71,6 +74,7 @@ Route::middleware('role:1')->group(function () {
 //********* Doctors Routes *********//
 
 Route::middleware('role:3')->group(function () {
+    Route::resource('/userprofileDoctor', UserPublicController::class);
     Route::get('/doctor_dashboard', 'App\Http\Controllers\Doctor\DashboardController@index');
     Route::resource('/patientList', PatientListingController::class);
     Route::get('/search', 'App\Http\Controllers\Doctor\PatientListingController@search');

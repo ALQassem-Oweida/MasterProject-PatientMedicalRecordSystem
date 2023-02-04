@@ -25,7 +25,7 @@
                 </li>
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('userprofile.index') }}">
+                    <a class="sidebar-link" href="{{ route('userprofileDoctor.index') }}">
                         <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
                     </a>
 

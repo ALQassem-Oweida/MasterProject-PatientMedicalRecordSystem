@@ -30,6 +30,8 @@ class UserPublicController extends Controller
         return view('doctor/doctor_Profile', ['user' => $user,'info'=>$info]);
         else 
         return view('user/userProfile', ['user' => $user,'info'=>$info]);
+       
+      
     }
 
  
