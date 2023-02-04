@@ -11,11 +11,15 @@
             </div>
         @endif
 
-        @error('national_id')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="card p-2">
             <div class="d-flex justify-content-between">
                 {{-- filter box --}}
@@ -135,71 +139,9 @@
                             <div class="col-md-6">
                                 <input id="national_id" type="text"
                                     class="form-control @error('national_id') is-invalid @enderror" name="national_id"
-                                    required autocomplete="national_id" autofocus>
+                                    required autocomplete="national_id" autofocus value="{{ old('national_id') }}">
 
                                 @error('national_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm"
-                                class="col-md-4 col-form-label text-md-end">{{ __('FName') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="FName" type="text" class="form-control" name="FName" required>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm"
-                                class="col-md-4 col-form-label text-md-end">{{ __('MName') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="MName" type="text" class="form-control" name="MName" required>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm"
-                                class="col-md-4 col-form-label text-md-end">{{ __('LName') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="LName" type="text" class="form-control" name="LName" required>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm"
-                                class="col-md-4 col-form-label text-md-end">{{ __('date_of_birth') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="date_of_birth" type="date" class="form-control" name="date_of_birth"
-                                    required>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm"
-                                class="col-md-4 col-form-label text-md-end">{{ __('address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="address" type="text" class="form-control" name="address" required>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('Phone') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="phone" type="text"
-                                    class="form-control @error('phone') is-invalid @enderror" name="phone" required
-                                    autocomplete="phone" autofocus>
-
-                                @error('phone')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -214,7 +156,7 @@
                             <div class="col-md-6">
                                 <input id="email" type="email"
                                     class="form-control @error('email') is-invalid @enderror" name="email" required
-                                    autocomplete="email">
+                                    autocomplete="email" value="{{ old('email') }}">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -225,29 +167,64 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password"
-                                class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                            <label for="password-confirm"
+                                class="col-md-4 col-form-label text-md-end">{{ __('First Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password"
-                                    class="form-control @error('password') is-invalid @enderror" name="password" required
-                                    autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <input id="FName" type="text" class="form-control" name="FName" required value="{{ old('FName') }}">
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="password-confirm"
-                                class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+                                class="col-md-4 col-form-label text-md-end">{{ __('Father Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control"
-                                    name="password_confirmation" required autocomplete="new-password">
+                                <input id="MName" type="text" class="form-control" name="MName" required value="{{ old('MName') }}">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="password-confirm"
+                                class="col-md-4 col-form-label text-md-end">{{ __('Family Name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="LName" type="text" class="form-control" name="LName" required value="{{ old('LName') }}">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="password-confirm"
+                                class="col-md-4 col-form-label text-md-end">{{ __('Date of birth') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="date_of_birth" type="date" class="form-control" name="date_of_birth"
+                                    required value="{{ old('date_of_birth') }}">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="password-confirm"
+                                class="col-md-4 col-form-label text-md-end">{{ __('Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="text" class="form-control" name="address" required value="{{ old('address') }}">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('Phone') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="phone" type="text"
+                                    class="form-control @error('phone') is-invalid @enderror" name="phone" required
+                                    autocomplete="phone" autofocus value="{{ old('phone') }}">
+
+                                @error('phone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 
@@ -261,6 +238,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
+
                             </div>
                         </div>
                     </form>

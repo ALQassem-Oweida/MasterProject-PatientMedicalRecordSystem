@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Support\Facades\Log;
@@ -20,7 +21,7 @@ class LandingController extends Controller
             $data = json_decode($response->getBody()->getContents(), true);
             // print_r($data['articles'][0]['content'] );
             return view('layouts.welcome', compact('data'));
-        } catch (RequestException $e) {
+        } catch (Exception $e) {
             $data['articles'][0]['description']="Sorry ! we are updating the news list at the moment.";
             $data['articles'][0]['source']['name']="Admin message";
             return view('layouts.welcome', compact('data'));

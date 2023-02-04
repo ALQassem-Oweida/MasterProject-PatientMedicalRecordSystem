@@ -76,9 +76,9 @@
                             <td>{{ $appointment->time }}</td>
                             <td>
                                 @if ($appointment->status == 0)
-                                <button class="btn btn-success" type="button" data-bs-toggle="modal"
-                                    data-bs-target="#edit{{ $appointment->id }}">Edit</button>
-                                @endif    
+                                    <button class="btn btn-success" type="button" data-bs-toggle="modal"
+                                        data-bs-target="#edit{{ $appointment->id }}">Edit</button>
+                                @endif
                             </td>
                             <!-- Modal Status -->
                             <div class="modal fade" id="del{{ $appointment->id }}" tabindex="-1"
@@ -106,6 +106,8 @@
                                                 data-bs-dismiss="modal">Close</button>
                                             @csrf
                                             @method('DELETE')
+                                            <input type="hidden" name="user_id" value={{ $appointment->user_id }}>
+                                            <input type="hidden" name="FName" value={{ $appointment->FName }}>
                                             <input type="submit" class="btn btn-danger" value="Update" />
                                             </form>
 
@@ -131,6 +133,9 @@
                                                 method="post">
                                                 @csrf
                                                 @method('PATCH')
+
+                                                <input type="hidden" name="FName" value={{ $appointment->FName }}>
+                                                <input type="hidden" name="user_id" value={{ $appointment->user_id }}>
                                                 <div class="form-group">
                                                     <label for="appointment_date">Appointment Date:</label>
                                                     <input type="date" class="form-control" id="appointment_date"

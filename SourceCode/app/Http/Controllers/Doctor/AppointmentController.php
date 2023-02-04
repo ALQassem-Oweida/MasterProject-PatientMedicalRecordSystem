@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Appointment;
 use App\Http\Requests\StoreappointmentRequest;
 use App\Http\Requests\UpdateappointmentRequest;
+use App\Models\User;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class AppointmentController extends Controller
 {
@@ -74,6 +76,19 @@ class AppointmentController extends Controller
 
         $appointment->save();
 
+        $data = [
+            'name' => $request->FName,
+            'date'=> $request->appointment_date,
+            'time'=> $request->appointment_time,
+            'email' => $request->email,
+            
+        ];
+    
+        Mail::send('doctor.email', $data, function ($message) use ($data) {
+            $message->to($data['email'], $data['name']);
+            $message->subject('Your Appointment Details');
+        });
+
         return redirect('appointments')->with('success', 'Appointments Data Add successfully');
 
 
@@ -94,12 +109,28 @@ class AppointmentController extends Controller
      */
     public function update(UpdateappointmentRequest $request,$id)
     {
+        
+        $user=User::where('id', $request->user_id)->first();
+        $email=$user->email;
+        
         Appointment::where('id', $id)->update([
             'date' => $request->appointment_date,
             'time' => $request->appointment_time
           
         ]);
    
+        $data = [
+            'name' => $request->FName,
+            'date'=> $request->appointment_date,
+            'time'=> $request->appointment_time,
+            'email' => $email,
+            
+        ];
+    
+        Mail::send('doctor.email_edited_appointment', $data, function ($message) use ($data) {
+            $message->to($data['email'], $data['name']);
+            $message->subject('Your Appointment Details');
+        });
         return redirect('appointments')->with('success', ' Appointment Data updated successfully');
     }
 
@@ -114,6 +145,21 @@ class AppointmentController extends Controller
         Appointment::where('id', $id)->update([
             'status' => $request->statusSelctor,
         ]);
+
+        if($request->statusSelctor==1){
+        $user=User::where('id', $request->user_id)->first();
+        $email=$user->email;
+        $data = [
+            'name' => $request->FName,
+            'email' => $email,
+            
+        ];
+        Mail::send('doctor.email_canceled_appointment', $data, function ($message) use ($data) {
+            $message->to($data['email'], $data['name']);
+            $message->subject('Your Appointment Details');
+        });
+    }
+
         return redirect('appointments')->with('success', 'Appointment status  updated successfully');
     }
 }

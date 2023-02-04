@@ -35,7 +35,7 @@
 
                                 <div>
 
-                                    <a class="btn btn-primary btn-sm" href="#"><span
+                                    <a class="btn btn-primary btn-sm" href="/"><span
                                             data-feather="message-square"></span> Message</a>
                                 </div>
                             </div>
@@ -103,6 +103,8 @@
                                 <div class="modal fade" id="appointmentPopUp" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
 
+                               
+
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -115,7 +117,7 @@
                                             <div class="modal-body">
                                                 <form action="{{ route('appointments.store') }}" method="post">
                                                     @csrf
-
+                                                    <input type="hidden" name="email" value={{$row->email}}>
                                                     <input type="hidden" class="form-control" id="user_id" name="user_id"
                                                         value={{ $row->userinfo->user_info_relation }}>
                                                     <input type="hidden" class="form-control" id="doctor_id"
@@ -389,8 +391,6 @@
                                                                 </div>
 
                                                             </td>
-                                                            
-                                  
                                                     @endforeach
                                                 @endif
                                             </tbody>
