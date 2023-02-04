@@ -1,4 +1,3 @@
-
 @include('layouts.app')
 
 
@@ -11,8 +10,8 @@
     <nav id="sidebar" class="sidebar js-sidebar">
         <div class="sidebar-content js-simplebar">
             <a class="sidebar-brand" href="">
-      <span class="align-middle">Admin Dashboard</span>
-     </a>
+                <span class="align-middle">Admin Dashboard</span>
+            </a>
 
             <ul class="sidebar-nav">
                 <li class="sidebar-header">
@@ -21,37 +20,41 @@
 
                 <li class="sidebar-item active">
                     <a class="sidebar-link" href="/admin_dashboard">
-          <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
-        </a>
+                        <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
+                    </a>
                 </li>
 
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="{{ route('userprofile.index') }}">
-          <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
-        </a>
-           
+                        <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
+                    </a>
+
 
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="/userList">
-          <i class="align-middle" data-feather="user"></i> <span class="align-middle">Users Data</span>
-        </a>
+                        <i class="align-middle" data-feather="user"></i> <span class="align-middle">Users Data</span>
+                    </a>
                 </li>
 
-               
 
-           
 
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="/doctorList">
-          <i class="align-middle" data-feather="book"></i> <span class="align-middle">Doctors Data</span>
-        </a>
+                        <i class="align-middle" data-feather="book"></i> <span class="align-middle">Doctors Data</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="/messages">
+                        <i class="align-middle" data-feather="message-square"></i> <span class="align-middle">Messages</span>
+                    </a>
                 </li>
 
 
-                
+
             </ul>
 
-            
+
         </div>
     </nav>
 
@@ -64,20 +67,20 @@
     <div class="main">
         <nav class="navbar navbar-expand navbar-light navbar-bg">
             <a class="sidebar-toggle js-sidebar-toggle">
-            <i class="hamburger align-self-center"></i>
-             </a>
+                <i class="hamburger align-self-center"></i>
+            </a>
         </nav>
 
         <main class="content">
             <div class="container-fluid p-0">
 
-     
+
                 @yield('admin_content')
-              
 
-               
 
-              
+
+
+
             </div>
         </main>
 
@@ -88,7 +91,8 @@
                 <div class="row text-muted">
                     <div class="col-6 text-start">
                         <p class="mb-0">
-                            <a class="text-muted" href="{{ url('/') }}" ><strong>   <span style="color: #A5C422" > M</span>EDICA</strong></a> &copy;
+                            <a class="text-muted" href="{{ url('/') }}"><strong> <span style="color: #A5C422">
+                                        M</span>EDICA</strong></a> &copy;
                         </p>
                     </div>
                     <div class="col-6 text-end">
@@ -131,7 +135,7 @@
             inline: true,
             prevArrow: "<span title=\"Previous month\">&laquo;</span>",
             nextArrow: "<span title=\"Next month\">&raquo;</span>",
-            defaultDate: defaultDate
+            defaultDate: Date.now(),
         });
     });
 </script>

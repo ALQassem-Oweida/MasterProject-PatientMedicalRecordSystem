@@ -131,7 +131,7 @@
             inline: true,
             prevArrow: "<span title=\"Previous month\">&laquo;</span>",
             nextArrow: "<span title=\"Next month\">&raquo;</span>",
-            defaultDate: defaultDate
+            defaultDate: Date.now(),
         });
     });
 </script>

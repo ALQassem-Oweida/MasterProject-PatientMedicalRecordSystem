@@ -272,6 +272,51 @@
 
 
 
+/* Admin Messages Styles */
 
 
+
+
+.shadow-lg {
+    box-shadow: 0 1rem 3rem rgb(0 0 0 / 18%) !important;
+
+}
+.card {
+    position: relative;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,0.125);
+    border-radius: .25rem;
+}
+
+.member-profile {
+    top: -50px;
+    left: 0;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+.member-profile img {
+    width: 100px;
+    height: 100px;
+}
+.rounded-circle {
+    border-radius: 50% !important;
+}
+.mx-auto {
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+.shadow-sm {
+    box-shadow: 0 0.125rem 0.25rem rgba(218, 12, 12, 0.08) !important;
+
+}
   

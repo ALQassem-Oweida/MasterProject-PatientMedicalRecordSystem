@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('contactuses', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('status')->default(0);
             $table->string('name');
             $table->string('email');
             $table->string('subject');

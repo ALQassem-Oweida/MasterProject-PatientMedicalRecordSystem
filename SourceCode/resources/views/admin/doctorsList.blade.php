@@ -10,6 +10,12 @@
                 {{ $message }}
             </div>
         @endif
+
+        @error('national_id')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
         <div class="card p-2">
             <div class="d-flex justify-content-between">
                 {{-- filter box --}}
@@ -60,7 +66,7 @@
                         <th>email</th>
                         <th>Phone</th>
                         <th></th>
-                        <th></th>
+
 
                     </thead>
                     <tbody>
@@ -114,7 +120,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">
-                        Add an appointment
+                        Add a doctor
                     </h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -128,9 +134,8 @@
 
                             <div class="col-md-6">
                                 <input id="national_id" type="text"
-                                    class="form-control @error('national_id') is-invalid @enderror"
-                                    name="national_id"  required
-                                    autocomplete="national_id" autofocus>
+                                    class="form-control @error('national_id') is-invalid @enderror" name="national_id"
+                                    required autocomplete="national_id" autofocus>
 
                                 @error('national_id')
                                     <span class="invalid-feedback" role="alert">
@@ -141,13 +146,58 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="phone"
-                                class="col-md-4 col-form-label text-md-end">{{ __('Phone') }}</label>
+                            <label for="password-confirm"
+                                class="col-md-4 col-form-label text-md-end">{{ __('FName') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="FName" type="text" class="form-control" name="FName" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="password-confirm"
+                                class="col-md-4 col-form-label text-md-end">{{ __('MName') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="MName" type="text" class="form-control" name="MName" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="password-confirm"
+                                class="col-md-4 col-form-label text-md-end">{{ __('LName') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="LName" type="text" class="form-control" name="LName" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="password-confirm"
+                                class="col-md-4 col-form-label text-md-end">{{ __('date_of_birth') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="date_of_birth" type="date" class="form-control" name="date_of_birth"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="password-confirm"
+                                class="col-md-4 col-form-label text-md-end">{{ __('address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="text" class="form-control" name="address" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('Phone') }}</label>
 
                             <div class="col-md-6">
                                 <input id="phone" type="text"
-                                    class="form-control @error('phone') is-invalid @enderror" name="phone"
-                                     required autocomplete="phone" autofocus>
+                                    class="form-control @error('phone') is-invalid @enderror" name="phone" required
+                                    autocomplete="phone" autofocus>
 
                                 @error('phone')
                                     <span class="invalid-feedback" role="alert">
@@ -163,8 +213,8 @@
 
                             <div class="col-md-6">
                                 <input id="email" type="email"
-                                    class="form-control @error('email') is-invalid @enderror" name="email"
-                                  required autocomplete="email">
+                                    class="form-control @error('email') is-invalid @enderror" name="email" required
+                                    autocomplete="email">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -180,8 +230,8 @@
 
                             <div class="col-md-6">
                                 <input id="password" type="password"
-                                    class="form-control @error('password') is-invalid @enderror"
-                                    name="password" required autocomplete="new-password">
+                                    class="form-control @error('password') is-invalid @enderror" name="password" required
+                                    autocomplete="new-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -201,9 +251,11 @@
                             </div>
                         </div>
 
+
+
                         <input id="role" type="hidden" name="role" value="3">
 
-                   
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -218,4 +270,4 @@
     </div>
 
 
-    @endsection
+@endsection

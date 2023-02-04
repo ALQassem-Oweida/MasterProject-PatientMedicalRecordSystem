@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\Admin\DoctorListingController;
+use App\Http\Controllers\Admin\MessagesListingController;
 use App\Http\Controllers\Admin\RegisterDocotorController;
 use App\Http\Controllers\Admin\UsersListingController;
 use App\Http\Controllers\ContactUsController;
@@ -32,8 +33,8 @@ Route::resource('/userprofile', UserPublicController::class);
 Route::resource('/medicalhistory', MedicalHistory::class);
 Route::resource('/medicalhistory2', Medications::class);
 Route::get('/user_dashboard', 'App\Http\Controllers\User\DashboardController@index')->middleware('role:2');
+Route::resource('/messages', MessagesListingController::class);
 Route::resource('/contactUs', ContactUsController::class);
-
 
 
 
@@ -50,6 +51,10 @@ Route::middleware('role:1')->group(function () {
     Route::get('/filterusers', 'App\Http\Controllers\Admin\UsersListingController@getData');
     Route::get('/filterdoctors', 'App\Http\Controllers\Admin\DoctorListingController@getData');
     Route::resource('/registerdoctor', RegisterDocotorController::class);
+    
+    Route::get('/searchMessages', 'App\Http\Controllers\Admin\MessagesListingController@search');
+    Route::get('/filterMessages', 'App\Http\Controllers\Admin\MessagesListingController@getData');
+    Route::post('/update-status', 'App\Http\Controllers\Admin\MessagesListingController@updateStatus');
 });
 
 

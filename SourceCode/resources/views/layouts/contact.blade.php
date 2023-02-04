@@ -73,7 +73,7 @@
                                         placeholder="Subject" style="height: 55px;">
                                 </div>
                                 <div class="col-12">
-                                    <textarea name="message" class="form-control bg-light border-0" rows="5" placeholder="Message"></textarea>
+                                    <textarea maxlength="250" name="message" class="form-control bg-light border-0" rows="5" placeholder="Message (250 character allowed)"></textarea>
                                 </div>
                                 <div class="col-12">
                                     <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>

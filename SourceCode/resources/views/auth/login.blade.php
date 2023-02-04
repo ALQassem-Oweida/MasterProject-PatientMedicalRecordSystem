@@ -13,8 +13,6 @@
 
         .gradient-form {
 
-
-
             height: 100px;
         }
 
@@ -62,7 +60,7 @@
                                     <form method="POST" action="{{ route('login') }}">
                                         @csrf
                                         <div class="form-outline ">
-                                            <label class="form-label" for="form2Example11">National ID</label>
+                                            <label class="form-label" for="form2Example11">ID</label>
                                             <input id="national_id" type="text"
                                                 class="form-control @error('national_id') is-invalid @enderror"
                                                 name="national_id" value="{{ old('national_id') }}" required

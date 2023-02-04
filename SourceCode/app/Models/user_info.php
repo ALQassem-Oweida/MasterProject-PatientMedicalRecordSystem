@@ -15,7 +15,12 @@ class user_info extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'national_id' ,
+        'FName' ,
+        'MName',
+        'LName' ,
+        'date_of_birth' ,
+        'address' ,
     ];
 
 

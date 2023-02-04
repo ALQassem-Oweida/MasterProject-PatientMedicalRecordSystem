@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
+use App\Models\contactus;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -11,6 +12,7 @@ class DashboardController extends Controller {
   public function index() {
     $usersCount = User::where('user_role',2)->count();
     $doctorsCount = User::where('user_role',3)->count();
-    return view('admin/admindash',['usersCount'=>$usersCount,'doctorsCount'=>$doctorsCount]);
+    $Messages = contactus::count();
+    return view('admin/admindash',['usersCount'=>$usersCount,'doctorsCount'=>$doctorsCount,'Messages'=>$Messages]);
   }
 }
