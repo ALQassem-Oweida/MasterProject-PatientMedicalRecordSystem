@@ -35,21 +35,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 
-//********* User Routes *********//
-
-Route::middleware('role:2')->group(function () {
-Route::get('/user_dashboard', 'App\Http\Controllers\User\DashboardController@index');
-Route::resource('/userprofile', UserPublicController::class);
-Route::resource('/medicalhistory', MedicalHistory::class);
-Route::resource('/medicalhistory2', Medications::class);
-Route::resource('/userAppointments', userAppointmentController::class);
-Route::get('/searchUserAppointments', 'App\Http\Controllers\User\userAppointmentController@search');
-Route::post('/filterUserAppointments', 'App\Http\Controllers\User\userAppointmentController@getData');
-});
-
-
-
-
 //********* Admin Routes *********//
 
 Route::middleware('role:1')->group(function () {
@@ -66,6 +51,21 @@ Route::middleware('role:1')->group(function () {
     Route::get('/filterMessages', 'App\Http\Controllers\Admin\MessagesListingController@getData');
     Route::post('/update-status', 'App\Http\Controllers\Admin\MessagesListingController@updateStatus');
     Route::resource('/messages', MessagesListingController::class);
+});
+
+
+
+
+//********* User Routes *********//
+
+Route::middleware('role:2')->group(function () {
+    Route::get('/user_dashboard', 'App\Http\Controllers\User\DashboardController@index');
+    Route::resource('/userprofile', UserPublicController::class);
+    Route::resource('/medicalhistory', MedicalHistory::class);
+    Route::resource('/medicalhistory2', Medications::class);
+    Route::resource('/userAppointments', userAppointmentController::class);
+    Route::get('/searchUserAppointments', 'App\Http\Controllers\User\userAppointmentController@search');
+    Route::post('/filterUserAppointments', 'App\Http\Controllers\User\userAppointmentController@getData');
 });
 
 
