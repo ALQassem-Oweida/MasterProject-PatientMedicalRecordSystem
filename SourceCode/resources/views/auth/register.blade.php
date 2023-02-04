@@ -70,7 +70,7 @@
                                                 <input id="national_id" type="text"
                                                     class="form-control @error('national_id') is-invalid @enderror"
                                                     name="national_id" value="{{ old('national_id') }}" required
-                                                    autocomplete="national_id" autofocus>
+                                                    autocomplete="national_id" autofocus maxlength="10">
 
                                                 @error('national_id')
                                                     <span class="invalid-feedback" role="alert">

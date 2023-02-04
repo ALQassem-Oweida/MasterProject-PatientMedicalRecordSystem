@@ -9,21 +9,11 @@ use App\Models\user_info;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
 use function GuzzleHttp\default_ca_bundle;
+
 
 class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
 
     use RegistersUsers;
 
@@ -52,16 +42,23 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        // $user = user_info::where('national_id', $data['national_id'])->exists();
-        return Validator::make($data, [
-            // 'name' => ['required', 'string', 'max:255'],
-            'national_id' => ['required','regex:/(^[0-9]+$)+/','min:10','max:10','unique:users'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8','max:12','confirmed'],
-            // $user!=null
-        ]);
-    }
 
+        $user = user_info::where('national_id', $data['national_id'])->first();
+
+        if ($user) {
+            return Validator::make($data, [
+                'national_id' => ['required', 'regex:/(^[0-9]+$)+/', 'min:10', 'max:10', 'unique:users'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'password' => ['required', 'string', 'min:8', 'max:12', 'confirmed'],
+            ]);
+        } else {
+            return Validator::make($data, [
+                'national_id' => ['required', 'regex:/(^[0-9]+$)+/','min:10', 'max:10', 'unique:users', 'in:This is is not avilable at oure system'],
+            ], [
+                'national_id.in' => 'This national ID is not available at our system',
+            ]);
+        }
+    }
     /**
      * Create a new user instance after a valid registration.
      *
@@ -70,29 +67,22 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        
 
-        $user=User::create([
-            // 'name' => $data['name'],
+
+
+        $user = User::create([
             'phone' => $data['phone'],
             'national_id' => $data['national_id'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'user_role'=>$data['role'],
-           
+            'user_role' => $data['role'],
         ]);
 
-         $user->userinfo()->create([
-            'Fname' => null,
-            'Mname' => null,
-            'Lname' => null,
-            'national_id' => $data['national_id'],
-            'date_of_birth'=> null,
-            'address'=> null,
+        user_info::where('national_id', $data['national_id'])->update([
+            'user_info_relation' => $user->id,
         ]);
+
 
         return  $user;
-
     }
-
 }

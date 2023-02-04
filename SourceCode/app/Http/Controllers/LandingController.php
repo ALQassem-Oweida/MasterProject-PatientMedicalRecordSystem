@@ -25,6 +25,7 @@ class LandingController extends Controller
             $data['articles'][0]['description']="Sorry ! we are updating the news list at the moment.";
             $data['articles'][0]['source']['name']="Admin message";
             return view('layouts.welcome', compact('data'));
+     
         }
 
 
