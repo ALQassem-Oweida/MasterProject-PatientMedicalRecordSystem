@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\Admin\DoctorListingController;
+use App\Http\Controllers\Admin\JordanInsuranceController;
 use App\Http\Controllers\Admin\MessagesListingController;
 use App\Http\Controllers\Admin\RegisterDocotorController;
 use App\Http\Controllers\Admin\UsersListingController;
@@ -53,6 +54,7 @@ Route::middleware('role:1')->group(function () {
     Route::get('/filterMessages', 'App\Http\Controllers\Admin\MessagesListingController@getData');
     Route::post('/update-status', 'App\Http\Controllers\Admin\MessagesListingController@updateStatus');
     Route::resource('/messages', MessagesListingController::class);
+    Route::resource('/InsuranceCo', JordanInsuranceController::class);
 });
 
 
@@ -71,6 +73,7 @@ Route::middleware('role:3')->group(function () {
     Route::post('/filterappointment', 'App\Http\Controllers\Doctor\AppointmentController@getData');
     Route::resource('/addmedicalrecord', MedicalHistory::class);
     Route::resource('/uploadFile', FileController::class);
+
 });
 
 
@@ -89,5 +92,5 @@ Route::middleware('role:2')->group(function () {
     Route::resource('/userFiles', userFilesController::class);
     Route::post('/filterFilesUser', 'App\Http\Controllers\User\userFilesController@getData');
     Route::get('/searchFilesUser', 'App\Http\Controllers\User\userFilesController@search');
-    
+
 });

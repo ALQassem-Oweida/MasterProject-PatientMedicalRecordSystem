@@ -223,13 +223,45 @@
                                                     <input type="hidden" class="form-control" id="national_id"
                                                         name="national_id" value={{ $row->national_id }}>
 
-                                                    <div class="form-group">
-                                                        <label for="file_name">File Name</label>
-                                                        <input type="text" class="form-control" id="file_name"
-                                                            name="file_name" required>
-                                                    </div><br><br>
 
-                                                    <input type="file" name="file">
+
+                                                    <div class="row mb-3">
+                                                        <label for="file_name"
+                                                            class="col-md-4 col-form-label text-md-end">{{ __('File Name') }}</label>
+
+                                                        <div class="col-md-6">
+                                                            <input type="text" name="file_name"
+                                                                class="form-control @error('file_name') is-invalid @enderror"
+                                                                name="file_name" required autofocus
+                                                                value="{{ old('file_name') }}">
+
+                                                            @error('file_name')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="row mb-3">
+                                                        <label for="file"
+                                                            class="col-md-4 col-form-label text-md-end">{{ __('File') }}</label>
+
+                                                        <div class="col-md-6">
+                                                            <input type="file" name="file"
+                                                                class="form-control @error('file') is-invalid @enderror"
+                                                                name="file" required autofocus
+                                                                value="{{ old('file') }}">
+
+                                                            @error('file')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
 
                                                 </div>
                                                 <div class="modal-footer">
@@ -525,10 +557,10 @@
                                                             <td>{{ $info->created_at }}</td>
                                                             <td>
                                                                 @if ($info->file_type == 'pdf')
-                                                                PDF file
-                                                            @else
-                                                                Image file
-                                                            @endif
+                                                                    PDF file
+                                                                @else
+                                                                    Image file
+                                                                @endif
                                                             </td>
                                                             <td>
                                                                 <!-- View file Modal -->
@@ -582,7 +614,7 @@
                                                                     <button type="button" class="btn btn-primary"
                                                                         data-bs-toggle="modal"
                                                                         data-bs-target="#viewFilePopUp{{ $info->id }}">
-                                                                       &nbsp; View Image &nbsp;
+                                                                        &nbsp; View Image &nbsp;
                                                                     </button>
                                                                 @endif
 
