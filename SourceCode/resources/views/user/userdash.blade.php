@@ -58,9 +58,9 @@
 
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="pages-blank.html">
+                    <a class="sidebar-link" href="/userFiles">
                         <i class="align-middle" data-feather="clipboard"></i> <span class="align-middle">Lab
-                            results</span>
+                            results and documents</span>
                     </a>
                 </li>
 

@@ -4,10 +4,10 @@
     <div class="row">
 
 		
-        <div class="col-xl-8 col-xxl-8 d-flex">
+        <div class="col-xl-12 col-xxl-8 d-flex">
             <div class="w-100">
                 <div class="row">
-                    <div class="col-sm-5">
+                    <div class="col-sm-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
@@ -46,7 +46,7 @@
                         </div>
 						
                     </div>
-                    <div class="col-sm-5">
+                    <div class="col-sm-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
@@ -94,7 +94,7 @@
             </div>
         </div> 
 
-        <div class="col col-md-12 col-xxl-4 d-flex order-1 order-xxl-1">
+        <div class="col col-md-10 xl-12 col-xxl-4 d-flex order-1 order-xxl-1">
             <div class="card flex-fill">
                 <div class="card-header">
 

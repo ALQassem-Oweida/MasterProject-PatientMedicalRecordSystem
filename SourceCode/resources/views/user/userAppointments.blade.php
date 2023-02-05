@@ -50,57 +50,72 @@
 
         </div>
     </div>
-    <div class="table-responsive">
-        <table class="table table-bordered border-primary table-hover  text-center">
-            <thead>
-                <tr>
-
-                    <th scope="col">Doctor Name</th>
-                    <th scope="col">Doctor Phone</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Time</th>               
-                    <th scope="col">Status</th>
 
 
-                </tr>
-            </thead>
-            <tbody>
+    <div class="row">
+        <div class="col-12 col-lg-8 col-xxl-12 d-flex p-3">
+            <div class="card flex-fill p-2">
+                <div class="card-header">
 
+                    <h5 class="card-title mb-0">Appointments</h5>
+                </div>
 
-                @if ($appointments != null)
-                    @foreach ($appointments as $appointment)
-                        <tr>
-                            <td>{{ $appointment->doctor->FName}} {{ $appointment->doctor->LName}}</td>
-                            <td>{{ $appointment->doctorInfos->phone}}</td>
-                            <td>{{ $appointment->date }}</td>
-                            <td>{{ $appointment->time }}</td>
-                          
-                          
-                       
-                            @if ($appointment->status == 0)
-                                <td style="color: rgb(9, 84, 204);font-weight:bold">
-                                    Scheduled      
-                                </td>
-                            @elseif($appointment->status == 1)
-                                <td style="color: rgb(205, 20, 20);font-weight:bold"> Canceled</td>
-                            @else
-                                <td style="color:green;font-weight:bold">Done</td>
+                <div class="table-responsive">
+                    <table class="table table-bordered border-primary table-hover  text-center">
+                        <thead>
+                            <tr>
+            
+                                <th scope="col">Doctor Name</th>
+                                <th scope="col">Doctor Phone</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Time</th>               
+                                <th scope="col">Status</th>
+            
+            
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+            
+                            @if ($appointments != null)
+                                @foreach ($appointments as $appointment)
+                                    <tr>
+                                        <td>{{ $appointment->doctor->FName}} {{ $appointment->doctor->LName}}</td>
+                                        <td>{{ $appointment->doctorInfos->phone}}</td>
+                                        <td>{{ $appointment->date }}</td>
+                                        <td>{{ $appointment->time }}</td>
+                                      
+                                      
+                                   
+                                        @if ($appointment->status == 0)
+                                            <td style="color: rgb(9, 84, 204);font-weight:bold">
+                                                Scheduled      
+                                            </td>
+                                        @elseif($appointment->status == 1)
+                                            <td style="color: rgb(205, 20, 20);font-weight:bold"> Canceled</td>
+                                        @else
+                                            <td style="color:green;font-weight:bold">Done</td>
+                                        @endif
+            
+                                    </tr>
+                                @endforeach
                             @endif
+            
+            
+            
+                        </tbody>
+                    </table>
+                </div>
+                <span>
+                    {{ $appointments->links() }}
+                </span>
+            </div>
+        </div>
 
-                        </tr>
-                    @endforeach
-                @endif
 
 
 
-            </tbody>
-        </table>
     </div>
-    <span>
-        {{ $appointments->links() }}
-    </span>
-
-
 
 
 @endsection

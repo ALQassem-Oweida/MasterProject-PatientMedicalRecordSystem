@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\File;
 use App\Models\medical_history;
 use App\Models\user_role;
 use Illuminate\Http\Request;
@@ -18,7 +19,8 @@ class MedicalHistory extends Controller
     {
         $user_id=Auth::user()->id;
         $m_infos = medical_history::where('user_id',$user_id)->paginate(4);
-        return view('Data.medical_histories',['m_infos'=>$m_infos]);
+       
+        return view('Data.medical_histories',compact('m_infos'));
     }
 
 
@@ -67,17 +69,7 @@ class MedicalHistory extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\user_role  $user_role
-     * @return \Illuminate\Http\Response
-     */
-    public function show(user_role $user_role)
-    {
-        //
-    }
-
+  
 
 
     /**

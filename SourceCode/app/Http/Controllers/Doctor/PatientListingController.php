@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Doctor;
 
 use App\Http\Controllers\Controller;
+use App\Models\File;
 use App\Models\medical_history;
 use App\Models\User;
 use App\Models\User_info;
@@ -40,26 +41,8 @@ class PatientListingController extends Controller
 
   
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+  
+    
 
     /**
      * Display the specified resource.
@@ -71,22 +54,13 @@ class PatientListingController extends Controller
     {
         $users = User::where('id',$id)->get();
         $doctor=User_info::where('user_info_relation',Auth::user()->id)->get();
-        $m_infos= medical_history::where('user_id',$id)->paginate(4);;
-     
+        $m_infos= medical_history::where('user_id',$id)->paginate(3);
+        $files_infos =File::where('user_id',$id)->paginate(2);
 
-        return view('doctor.patientDataPage', compact('users'),["m_infos"=>$m_infos]);
+        return view('doctor.patientDataPage', compact('users'),['m_infos'=>$m_infos,'files_infos'=> $files_infos]);
     }
 
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     */
-    public function edit()
-    {
-        //
-    }
-   
 
     /**
      * Update the specified resource in storage.

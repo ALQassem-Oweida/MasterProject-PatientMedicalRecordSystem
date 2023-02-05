@@ -7,6 +7,15 @@
         </div>
     @endif
 
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
 
 
@@ -99,11 +108,19 @@
                                     </button>
                                 </h5>
 
+                                <h5 class="h6 card-title">
+                                    <!-- Button trigger modal add test file -->
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#addTestFilePopUp">
+                                        Add a Test File
+                                    </button>
+                                </h5>
+
                                 <!-- Add appointment Modal -->
                                 <div class="modal fade" id="appointmentPopUp" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
 
-                               
+
 
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
@@ -117,7 +134,7 @@
                                             <div class="modal-body">
                                                 <form action="{{ route('appointments.store') }}" method="post">
                                                     @csrf
-                                                    <input type="hidden" name="email" value={{$row->email}}>
+                                                    <input type="hidden" name="email" value={{ $row->email }}>
                                                     <input type="hidden" class="form-control" id="user_id" name="user_id"
                                                         value={{ $row->userinfo->user_info_relation }}>
                                                     <input type="hidden" class="form-control" id="doctor_id"
@@ -168,6 +185,58 @@
                                                 <button type="submit" class="btn btn-primary">Set the
                                                     appointment</button>
                                             </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Add a test file Modal -->
+                                <div class="modal fade" id="addTestFilePopUp" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+
+
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                                    Add a test file
+                                                </h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <form action="{{ route('uploadFile.store') }}" method="post"
+                                                enctype="multipart/form-data">
+                                                <div class="modal-body">
+
+                                                    @csrf
+
+
+                                                    <input type="hidden" name="email" value={{ $row->email }}>
+
+                                                    <input type="hidden" class="form-control" id="user_id"
+                                                        name="user_id" value={{ $row->userinfo->user_info_relation }}>
+
+                                                    <input type="hidden" class="form-control" id="doctor_id"
+                                                        name="doctor_id" value={{ Auth::user()->id }}>
+
+                                                    <input type="hidden" class="form-control" id="national_id"
+                                                        name="national_id" value={{ $row->national_id }}>
+
+                                                    <div class="form-group">
+                                                        <label for="file_name">File Name</label>
+                                                        <input type="text" class="form-control" id="file_name"
+                                                            name="file_name" required>
+                                                    </div><br><br>
+
+                                                    <input type="file" name="file">
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Uploade File</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -263,7 +332,9 @@
                         </div>
                     </div>
 
-                    <div class="col-md-12 col-xl-9">
+                    <div class="col-md-12 col-xl-9 ">
+
+                        <!-- Medical Details Card -->
                         <div class="card">
                             <div class="card-header">
 
@@ -287,6 +358,9 @@
                                                     <th>Dosage</th>
                                                     <th>Frequency</th>
                                                     <th>Allergy</th>
+                                                    <th>Add By</th>
+                                                    <th>Edited By</th>
+
                                                     <th></th>
                                                 </tr>
                                                 @if ($m_infos != null)
@@ -300,6 +374,17 @@
                                                             <td>{{ $info->dosage }}</td>
                                                             <td>{{ $info->frequency }}</td>
                                                             <td>{{ $info->allergy }}</td>
+                                                            <td>{{ $info->doctorAdd->FName }}
+                                                                {{ $info->doctorAdd->LName }}</td>
+                                                            <td>
+                                                                @if ($info->doctorEdited != null)
+                                                                    {{ $info->doctorEdited->FName }}
+                                                                    {{ $info->doctorEdited->LName }}
+                                                                @else
+                                                                    null
+                                                                @endif
+
+                                                            </td>
                                                             <td>
 
                                                                 {{-- Edit modal tregar --}}
@@ -405,7 +490,121 @@
 
                             </div>
                         </div>
+                        <!-- Files Details Card -->
+                        {{-- <div class="d-flex align-items-start justify-content-center"> --}}
+                        <div class="card">
+                            <div class="card-header">
+
+                                <h5 class="card-title mb-0">Documents Details</h5>
+                            </div>
+                            <div class="card-body h-100 ">
+
+                                <div class="d-flex align-items-start justify-content-center">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <tbody>
+                                                <tr>
+
+
+                                                    <th>File Name</th>
+                                                    <th>Add By</th>
+                                                    <th>Uploaded at</th>
+                                                    <th>File type</th>
+                                                    <th>View</th>
+
+
+
+                                                </tr>
+                                                @if ($files_infos != null)
+                                                    @foreach ($files_infos as $info)
+                                                        <tr>
+
+                                                            <td>{{ $info->file_name }}</td>
+                                                            <td>{{ $info->doctorAdd->FName }}
+                                                                {{ $info->doctorAdd->LName }}</td>
+                                                            <td>{{ $info->created_at }}</td>
+                                                            <td>
+                                                                @if ($info->file_type == 'pdf')
+                                                                PDF file
+                                                            @else
+                                                                Image file
+                                                            @endif
+                                                            </td>
+                                                            <td>
+                                                                <!-- View file Modal -->
+                                                                <div class="modal fade"
+                                                                    id="viewFilePopUp{{ $info->id }}" tabindex="-1"
+                                                                    aria-labelledby="exampleModalLabel"
+                                                                    aria-hidden="true">
+
+                                                                    <div class="modal-dialog modal-dialog-centered">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h1 class="modal-title fs-5"
+                                                                                    id="exampleModalLabel">
+                                                                                    View File
+                                                                                </h1>
+                                                                                <button type="button" class="btn-close"
+                                                                                    data-bs-dismiss="modal"
+                                                                                    aria-label="Close"></button>
+                                                                            </div>
+
+                                                                            <div class="modal-body">
+
+
+                                                                                <img src="/files/{{ $info->path }}"
+                                                                                    alt="file_img"
+                                                                                    style="max-width: 100%;
+                                                                                    height: auto;">
+
+
+
+
+
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button"
+                                                                                    class="btn btn-secondary"
+                                                                                    data-bs-dismiss="modal">Close
+                                                                                </button>
+
+                                                                            </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- Button trigger modal view file or downlod for pdf-->
+                                                                @if ($info->file_type == 'pdf')
+                                                                    <a href="/files/{{ $info->path }}" download
+                                                                        class="btn btn-primary">Download PDF
+                                                                    </a>
+                                                                @else
+                                                                    <button type="button" class="btn btn-primary"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#viewFilePopUp{{ $info->id }}">
+                                                                       &nbsp; View Image &nbsp;
+                                                                    </button>
+                                                                @endif
+
+                                                            </td>
+                                                    @endforeach
+                                                @endif
+                                            </tbody>
+                                        </table>
+                                        <span>
+                                            {{ $files_infos->links() }}
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        {{-- </div> --}}
                     </div>
+
+
                 </div>
 
             </div>

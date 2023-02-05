@@ -7,11 +7,13 @@ use App\Http\Controllers\Admin\RegisterDocotorController;
 use App\Http\Controllers\Admin\UsersListingController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\Doctor\AppointmentController as DoctorAppointmentController;
+use App\Http\Controllers\Doctor\FileController;
 use App\Http\Controllers\Doctor\PatientListingController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\MedicalHistory;
 use App\Http\Controllers\Medications;
 use App\Http\Controllers\User\userAppointmentController;
+use App\Http\Controllers\User\userFilesController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserPublicController;
@@ -56,21 +58,6 @@ Route::middleware('role:1')->group(function () {
 
 
 
-//********* User Routes *********//
-
-Route::middleware('role:2')->group(function () {
-    Route::get('/user_dashboard', 'App\Http\Controllers\User\DashboardController@index');
-    Route::resource('/userprofile', UserPublicController::class);
-    Route::resource('/medicalhistory', MedicalHistory::class);
-    Route::resource('/medicalhistory2', Medications::class);
-    Route::resource('/userAppointments', userAppointmentController::class);
-    Route::get('/searchUserAppointments', 'App\Http\Controllers\User\userAppointmentController@search');
-    Route::post('/filterUserAppointments', 'App\Http\Controllers\User\userAppointmentController@getData');
-});
-
-
-
-
 //********* Doctors Routes *********//
 
 Route::middleware('role:3')->group(function () {
@@ -83,4 +70,23 @@ Route::middleware('role:3')->group(function () {
     Route::get('/searchappointment', 'App\Http\Controllers\Doctor\AppointmentController@search');
     Route::post('/filterappointment', 'App\Http\Controllers\Doctor\AppointmentController@getData');
     Route::resource('/addmedicalrecord', MedicalHistory::class);
+    Route::resource('/uploadFile', FileController::class);
+});
+
+
+
+
+//********* User Routes *********//
+
+Route::middleware('role:2')->group(function () {
+    Route::get('/user_dashboard', 'App\Http\Controllers\User\DashboardController@index');
+    Route::resource('/userprofile', UserPublicController::class);
+    Route::resource('/medicalhistory', MedicalHistory::class);
+    Route::resource('/medicalhistory2', Medications::class);
+    Route::resource('/userAppointments', userAppointmentController::class);
+    Route::get('/searchUserAppointments', 'App\Http\Controllers\User\userAppointmentController@search');
+    Route::post('/filterUserAppointments', 'App\Http\Controllers\User\userAppointmentController@getData');
+    Route::resource('/userFiles', userFilesController::class);
+    Route::post('/filterFilesUser', 'App\Http\Controllers\User\userFilesController@getData');
+    Route::get('/searchFilesUser', 'App\Http\Controllers\User\userFilesController@search');
 });
