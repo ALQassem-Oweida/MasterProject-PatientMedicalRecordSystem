@@ -89,4 +89,5 @@ Route::middleware('role:2')->group(function () {
     Route::resource('/userFiles', userFilesController::class);
     Route::post('/filterFilesUser', 'App\Http\Controllers\User\userFilesController@getData');
     Route::get('/searchFilesUser', 'App\Http\Controllers\User\userFilesController@search');
+    
 });
