@@ -36,6 +36,13 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="/registeruser">
+                        <i class="align-middle" data-feather="plus"></i> <span class="align-middle">Add a new user
+                            infos</span>
+                    </a>
+                </li>
+
 
 
                 <li class="sidebar-item">
@@ -58,12 +65,7 @@
                     </a>
                 </li>
 
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="/registeruser">
-                        <i class="align-middle" data-feather="plus"></i> <span class="align-middle">Add a new user
-                            infos</span>
-                    </a>
-                </li>
+               
 
 
 

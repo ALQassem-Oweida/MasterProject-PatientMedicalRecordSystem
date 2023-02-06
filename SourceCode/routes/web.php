@@ -55,7 +55,7 @@ Route::middleware('role:1')->group(function () {
     Route::resource('/registerdoctor', RegisterDocotorController::class);
     Route::resource('/registeruser', RegisterUserController::class);
     Route::get('/filterUserInfos', 'App\Http\Controllers\Admin\RegisterUserController@getData');
-    Route::get('/searchUserInfos', 'App\Http\Controllers\Admin\RegisterUserController@getData');
+    Route::get('/searchUserInfos', 'App\Http\Controllers\Admin\RegisterUserController@search');
     Route::get('/searchMessages', 'App\Http\Controllers\Admin\MessagesListingController@search');
     Route::get('/filterMessages', 'App\Http\Controllers\Admin\MessagesListingController@getData');
     Route::post('/update-status', 'App\Http\Controllers\Admin\MessagesListingController@updateStatus');
