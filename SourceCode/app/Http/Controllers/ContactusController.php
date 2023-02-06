@@ -30,10 +30,10 @@ class ContactUsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'         => 'required',
-            'email'        => 'required',
-            'subject'      => 'required',
-            'message'      => 'required'
+            'name'         => 'required|min:2|max:40',
+            'email'        => 'required|email',
+            'subject'      => 'required|min:3|max:15',
+            'message'      => 'required|max:250|min:10'
         ]);
 
         $contact = new contactus();

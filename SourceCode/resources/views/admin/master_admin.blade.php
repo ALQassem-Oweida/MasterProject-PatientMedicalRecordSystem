@@ -43,20 +43,29 @@
                         <i class="align-middle" data-feather="book"></i> <span class="align-middle">Doctors Data</span>
                     </a>
                 </li>
-                
+
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="/messages">
-                        <i class="align-middle" data-feather="message-square"></i> <span class="align-middle">Messages</span>
+                        <i class="align-middle" data-feather="message-square"></i> <span
+                            class="align-middle">Messages</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="/InsuranceCo">
-                        <i class="align-middle" data-feather="heart"></i> <span class="align-middle">Insurance Companys</span>
+                        <i class="align-middle" data-feather="heart"></i> <span class="align-middle">Insurance
+                            Companys</span>
                     </a>
                 </li>
 
-                
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="/registeruser">
+                        <i class="align-middle" data-feather="plus"></i> <span class="align-middle">Add a new user
+                            infos</span>
+                    </a>
+                </li>
+
+
 
             </ul>
 
@@ -106,7 +115,7 @@
                             <li class="list-inline-item">
                                 <a class="text-muted" href="/contactUs" target="_blank">Contact Us</a>
                             </li>
-                           
+
                         </ul>
                     </div>
                 </div>

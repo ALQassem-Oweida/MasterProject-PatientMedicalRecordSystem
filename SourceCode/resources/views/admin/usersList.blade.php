@@ -36,7 +36,7 @@
                             </form>
                         </div>
                         {{-- Searche bar --}}
-                        <div class="col-12 col-md-12 col-lg-6 d-flex justify-content-end" >
+                        <div class="col-12 col-md-12 col-lg-6 d-flex justify-content-end">
                             <form action="/searchadmin" method="get">
 
                                 <div class="form-group">
@@ -120,6 +120,6 @@
 
 
             </div>
+        @endif
     </div>
-    @endif
 @endsection

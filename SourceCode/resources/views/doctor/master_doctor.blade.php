@@ -32,7 +32,7 @@
 
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="/patientList">
-                        <i class="align-middle" data-feather="user"></i> <span class="align-middle">Patient Data</span>
+                        <i class="align-middle" data-feather="users"></i> <span class="align-middle">Patient Data</span>
                     </a>
                 </li>
 

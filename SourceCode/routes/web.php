@@ -1,10 +1,12 @@
 <?php
 
 
+use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\Admin\DoctorListingController;
-use App\Http\Controllers\Admin\JordanInsuranceController;
+use App\Http\Controllers\Admin\InsuranceController as AdminInsuranceController;
 use App\Http\Controllers\Admin\MessagesListingController;
 use App\Http\Controllers\Admin\RegisterDocotorController;
+use App\Http\Controllers\Admin\RegisterUserController;
 use App\Http\Controllers\Admin\UsersListingController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\Doctor\AppointmentController as DoctorAppointmentController;
@@ -26,6 +28,7 @@ use App\Http\Controllers\UserPublicController;
 
 Route::resource('/', LandingController::class);
 Route::resource('/contactUs', ContactUsController::class);
+Route::resource('/aboutUs', AboutUsController::class);
 
 
 
@@ -50,12 +53,15 @@ Route::middleware('role:1')->group(function () {
     Route::get('/filterusers', 'App\Http\Controllers\Admin\UsersListingController@getData');
     Route::get('/filterdoctors', 'App\Http\Controllers\Admin\DoctorListingController@getData');
     Route::resource('/registerdoctor', RegisterDocotorController::class);
+    Route::resource('/registeruser', RegisterUserController::class);
+    Route::get('/filterUserInfos', 'App\Http\Controllers\Admin\RegisterUserController@getData');
+    Route::get('/searchUserInfos', 'App\Http\Controllers\Admin\RegisterUserController@getData');
     Route::get('/searchMessages', 'App\Http\Controllers\Admin\MessagesListingController@search');
     Route::get('/filterMessages', 'App\Http\Controllers\Admin\MessagesListingController@getData');
     Route::post('/update-status', 'App\Http\Controllers\Admin\MessagesListingController@updateStatus');
     Route::resource('/messages', MessagesListingController::class);
-    Route::resource('/InsuranceCo', JordanInsuranceController::class);
-    Route::get('/searchCompanyadmin', 'App\Http\Controllers\Admin\JordanInsuranceController@search');
+   Route::resource('/InsuranceCo',AdminInsuranceController::class);
+    Route::get('/searchCompanyadmin', 'App\Http\Controllers\Admin\InsuranceController@search');
 });
 
 
@@ -67,8 +73,9 @@ Route::middleware('role:3')->group(function () {
     Route::resource('/userprofileDoctor', UserPublicController::class);
     Route::get('/doctor_dashboard', 'App\Http\Controllers\Doctor\DashboardController@index');
     Route::resource('/patientList', PatientListingController::class);
-    Route::get('/search', 'App\Http\Controllers\Doctor\PatientListingController@search');
     Route::resource('/patiendatapage', PatientListingController::class);
+    Route::get('/search', 'App\Http\Controllers\Doctor\PatientListingController@search');
+    Route::get('/filterusersDoctor', 'App\Http\Controllers\Doctor\PatientListingController@getData');
     Route::resource('/appointments', DoctorAppointmentController::class);
     Route::get('/searchappointment', 'App\Http\Controllers\Doctor\AppointmentController@search');
     Route::post('/filterappointment', 'App\Http\Controllers\Doctor\AppointmentController@getData');

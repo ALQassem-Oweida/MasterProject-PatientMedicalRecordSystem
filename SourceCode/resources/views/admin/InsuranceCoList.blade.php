@@ -21,26 +21,28 @@
 
 
         <div class="card p-2">
-            <div class="d-flex justify-content-between">
-              
-                {{-- add company treger --}}
-                <div class="col-12 col-md-12 col-lg-6">
-                <button data-bs-toggle="modal" data-bs-target="#addCompany" class="btn btn-info" >Add a
-                    Company</button>
+            <div class="container">
+                <div class="row">
+
+                    {{-- add company treger --}}
+                    <div class="col-12 col-md-12 col-lg-6">
+                        <button data-bs-toggle="modal" data-bs-target="#addCompany" class="btn btn-info">Add a
+                            Company</button>
+                    </div>
+
+                    {{-- Searche bar --}}
+                    <div class="col-12 col-md-12 col-lg-6 d-flex justify-content-end">
+                        <form action="/searchCompanyadmin" method="get">
+
+                            <div class="form-group">
+                                <input style="padding-bottom: 5px;padding-left: 15px" type="text" name="query"
+                                    placeholder="Enter company name">
+                                <button type="submit" class="btn btn-info">Search</button>
+                            </div>
+                        </form>
+                    </div>
+
                 </div>
-
-                {{-- Searche bar --}}
-                <div class="col-12 col-md-12 col-lg-6 d-flex justify-content-end" >
-                    <form action="/searchCompanyadmin" method="get">
-
-                        <div class="form-group">
-                            <input style="padding-bottom: 5px;padding-left: 15px" type="text" name="query"
-                                placeholder="Enter company name">
-                            <button type="submit" class="btn btn-info">Search</button>
-                        </div>
-                    </form>
-                </div>
-
             </div>
         </div>
 
@@ -55,7 +57,7 @@
                         @foreach ($InsuranceCo as $company)
                             <div class="col-12 col-md-6 col-lg-4">
 
-                                <div class="card border-0 shadow-lg  position-relative" >
+                                <div class="card border-0 shadow-lg  position-relative">
                                     <div class="card-body p-4">
 
                                         <div class="card-text">
@@ -101,25 +103,28 @@
                                                     class="align-middle">
 
                                                     {{ $company->address }}
-                                                    {{-- Edit company treger --}}
+
 
 
                                                 </span>
                                             </li>
                                         </ul>
-                                        <button data-bs-toggle="modal" data-bs-target="#editCompany{{ $company->id }}"
-                                            class="btn btn-info">Edite</button>
 
+                                        <div class="row d-flex justify-content-end py-3">
+                                            {{-- Edit company treger --}}
+                                            <button data-bs-toggle="modal" data-bs-target="#editCompany{{ $company->id }}"
+                                                class="btn btn-info btn-sm col-4 col-md-4 col-lg-5">Edite</button>
+                                            <form method="post" class="col-4 col-md-4 col-lg-5"
+                                                action="{{ route('InsuranceCo.destroy', $company->id) }}">
+                                                @csrf
+                                                @method('DELETE')
 
-                                        <form class="float-end" method="post"
-                                            action="{{ route('InsuranceCo.destroy', $company->id) }}">
-                                            @csrf
-                                            @method('DELETE')
+                                                <button
+                                                    onclick="return confirm('Are you sure you want to delet this company?')"
+                                                    type="submit" class="btn btn-danger btn-sm">delete</button>
+                                            </form>
 
-                                            <input onclick="return confirm('Are you sure you want to delet this company?')"
-                                                type="submit" class="btn btn-danger btn-sm" value="del" />
-                                        </form>
-
+                                        </div>
 
                                     </div>
                                     <!--//card-footer-->
@@ -143,8 +148,8 @@
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="{{ route('InsuranceCo.show', $company->id) }}"
-                                                enctype="multipart/form-data">
+                                            <form action="{{ route('InsuranceCo.update', $company->id) }}"
+                                                enctype="multipart/form-data" method="post">
                                                 @csrf
                                                 @method('PATCH')
 
@@ -261,12 +266,12 @@
                                                 <div class="row mb-3">
                                                     <label for="image"
                                                         class="col-md-4 col-form-label text-md-end">{{ __('Company Logo') }}</label>
-                        
+
                                                     <div class="col-md-6">
                                                         <input type="file" name="image"
-                                                            class="form-control @error('image') is-invalid @enderror" name="image" required
-                                                            autofocus value="{{ old('image') }}">
-                        
+                                                            class="form-control @error('image') is-invalid @enderror"
+                                                            name="image" autofocus value="{{ old('image') }}">
+
                                                         @error('image')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>

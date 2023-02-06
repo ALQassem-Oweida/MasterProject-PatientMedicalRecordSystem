@@ -65,20 +65,20 @@
                         </div>
                         <div class="col-sm-3 col-6">
                             <div class="bg-light text-center rounded-circle py-4">
-                                <i class="fa fa-3x fa-procedures text-primary mb-3"></i>
-                                <h6 class="mb-0">Emergency<small class="d-block text-primary">Services</small></h6>
+                                <i class="fa fa-3x fa-calendar-check-o text-primary mb-3"></i>
+                                <h6 class="mb-0">Appointments<small class="d-block text-primary">Booking</small></h6>
                             </div>
                         </div>
                         <div class="col-sm-3 col-6">
                             <div class="bg-light text-center rounded-circle py-4">
                                 <i class="fa fa-3x fa-microscope text-primary mb-3"></i>
-                                <h6 class="mb-0">Accurate<small class="d-block text-primary">Testing</small></h6>
+                                <h6 class="mb-0">Testing<small class="d-block text-primary">Result</small></h6>
                             </div>
                         </div>
                         <div class="col-sm-3 col-6">
                             <div class="bg-light text-center rounded-circle py-4">
-                                <i class="fa fa-3x fa-ambulance text-primary mb-3"></i>
-                                <h6 class="mb-0">Free<small class="d-block text-primary">Ambulance</small></h6>
+                                <i class="fa fa-3x fa-info text-primary mb-3"></i>
+                                <h6 class="mb-0">Insurance<small class="d-block text-primary">Informations</small></h6>
                             </div>
                         </div>
                     </div>

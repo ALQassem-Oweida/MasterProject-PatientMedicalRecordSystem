@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Doctor;
 
 use App\Http\Controllers\Controller;
+use App\Models\Appointment;
 use App\Models\File;
 use App\Models\medical_history;
 use App\Models\User;
@@ -86,16 +87,6 @@ class PatientListingController extends Controller
         // return redirect()->route('users.index')->with('success','data has been updated successfully');
         return redirect('admin/users')->with('success', $request->name . ' User Data update successfully');
     }
-
-
-
-
-
-
-
-
-
-
 
 
 
