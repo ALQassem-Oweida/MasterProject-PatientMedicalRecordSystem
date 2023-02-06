@@ -1,16 +1,17 @@
 @extends('layouts.master')
 @section('content2')
     <div id="news-container">
-      
-            <marquee id="news-text" behavior="scroll" direction="left">
-                
-                @for ($i = 0; $i < count($data['articles']); $i++)
-                <span style="color: blue;font-weight: bold">{{$data['articles'][$i]['source']['name']}}</span> : {{ $data['articles'][$i]['description'] }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                @endfor
-               
-            </marquee>
-     
-   
+
+        <marquee id="news-text" behavior="scroll" direction="left">
+
+            @for ($i = 0; $i < count($data['articles']); $i++)
+                <span style="color: blue;font-weight: bold">{{ $data['articles'][$i]['source']['name'] }}</span> :
+                {{ $data['articles'][$i]['description'] }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @endfor
+
+        </marquee>
+
+
     </div>
 
 
@@ -204,4 +205,99 @@
         </div>
     </div>
     <!-- Services End -->
+
+
+    <div class="container-fluid py-5">
+        <div class="container d-flex justify-content-center ">
+            {{-- <div class="col-12 col-md-6 col-lg-4"> --}}
+
+            <div id="carouselExampleControlsNoTouching" class="carousel carousel-dark slide" data-bs-touch="true">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/InsuranceCoimages/1.jpg" alt="file_img" style="max-width: 100%;height: auto;">
+                    </div>
+
+                    @foreach ($InsuranceCo as $company)
+                        <div class="carousel-item ">
+                            <div class="card border-0 shadow-lg  position-relative" {{-- @if ($message->status == 0) style="background-color: rgba(199, 28, 28, 0.208)" @endif --}}>
+                                <div class="card-body p-4">
+
+                                    <div class="card-text">
+                                        <h5 class="member-name mb-2 text-center text-primary font-weight-bold">
+                                            <a href={{ $company->website }} target="_blank" title="Go to Company Website">
+                                                <img src="/InsuranceCoimages/{{ $company->image }}" alt="file_img"
+                                                    style="max-width: 100%;height: auto;">
+                                            </a>
+                                        </h5>
+                                        <div class="mb-3 text-center fw-bold ">
+                                            {{ $company->name }}<br>
+                                            ({{ $company->foundation_year }})
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!--//card-body-->
+                                <div class="card-footer theme-bg-primary border-0 text-start">
+                                    <ul class="social-list list-inline mb-0 mx-auto">
+                                        <li class="list-inline-item">
+                                            <i class="align-middle" data-feather="mail"></i> <span class="align-middle">
+
+                                                {{ $company->email }}
+
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    <ul class="social-list list-inline mb-0 mx-auto">
+
+                                        <li class="list-inline-item">
+                                            <i class="align-middle" data-feather="phone"></i> <span class="align-middle">
+
+                                                {{ $company->phone }}
+
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    <ul class="social-list list-inline mb-0 mx-auto">
+                                        <li class="list-inline-item">
+                                            <i class="align-middle" data-feather="compass"></i> <span
+                                                class="align-middle">
+
+                                                {{ $company->address }}
+                                               
+                                        </li>
+                                    </ul>
+                                   
+
+                            
+
+
+                                </div>
+                                <!--//card-footer-->
+                            </div>
+                        </div>
+                    @endforeach
+
+
+
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+    {{-- </div> --}}
 @endsection

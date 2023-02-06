@@ -28,6 +28,13 @@ class JordanInsuranceController extends Controller
     }
 
 
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $InsuranceCo = JordanCoInsurance::where('name', 'like', "%$query%")->paginate(3);
+        return view('admin.InsuranceCoList', ['InsuranceCo' => $InsuranceCo]);
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -50,7 +57,6 @@ class JordanInsuranceController extends Controller
         ]);
 
         $file_name = $request->name . '_' . time() . '.' . request()->image->getClientOriginalExtension();
-
         request()->image->move(public_path('InsuranceCoimages'), $file_name);
 
         $company = new JordanCoInsurance();
@@ -69,15 +75,17 @@ class JordanInsuranceController extends Controller
         return redirect()->back()->with('success', 'Comapny Data Add successfully');
     }
 
+
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request,$id)
+    public function show(Request $request, $id)
     {
 
+        // dd($request->image);
         $request->validate([
             'name'          => 'required|string|min:2|max:100',
             'email'   => 'required|email|min:5|max:100',
@@ -86,15 +94,14 @@ class JordanInsuranceController extends Controller
             'address'        => 'required|string|min:10|max:200',
             'phone'        => 'required|regex:/^[0-9]{10,15}$/',
             'foundation_year'        => 'required|integer|between:1900,2099',
-            'image'           => 'image|mimes:jpeg,png,jpg|max:2048'
+            // 'image'           => 'image|mimes:jpeg,png,jpg|max:2048'
         ]);
 
-
-        if ($request->image != "") {
+        if ($request->image != "" && $request->hasFile('image')) {
             $file_name = $request->name . '_' . time() . '.' . request()->image->getClientOriginalExtension();
             request()->image->move(public_path('InsuranceCoimages'), $file_name);
         } else {
-            $file_name = $request->hidden_img;
+            $file_name = 'Philadelphia Insurance Company_1675633019.jpg';
         }
 
         JordanCoInsurance::where('id', $id)->update([
@@ -106,7 +113,7 @@ class JordanInsuranceController extends Controller
             'phone' => $request->phone,
             'foundation_year' => $request->foundation_year,
             'image' => $file_name,
-          
+
         ]);
 
 
@@ -121,10 +128,10 @@ class JordanInsuranceController extends Controller
         // $company->image = $file_name;
 
         // $company->save();
-        return redirect()->back()->with('success', 'Comapny Data Add successfully');
+        return redirect()->back()->with('success', 'Comapny Data updated successfully');
     }
 
-    
+
 
     /**
      * Update the specified resource in storage.
@@ -144,7 +151,7 @@ class JordanInsuranceController extends Controller
             'address'        => 'required|string|min:10|max:200',
             'phone'        => 'required|regex:/^[0-9]{10,15}$/',
             'foundation_year'        => 'required|integer|between:1900,2099',
-            'image'           => 'image|mimes:jpeg,png,jpg|max:2048'
+            // 'image'           => 'image|mimes:jpeg,png,jpg|max:2048'
         ]);
 
 
@@ -164,7 +171,7 @@ class JordanInsuranceController extends Controller
             'phone' => $request->phone,
             'foundation_year' => $request->foundation_year,
             'image' => $file_name,
-          
+
         ]);
 
 
@@ -179,7 +186,7 @@ class JordanInsuranceController extends Controller
         // $company->image = $file_name;
 
         // $company->save();
-        return redirect()->back()->with('success', 'Comapny Data Add successfully');
+        return redirect()->back()->with('success', 'Comapny Data updated successfully');
     }
 
     /**

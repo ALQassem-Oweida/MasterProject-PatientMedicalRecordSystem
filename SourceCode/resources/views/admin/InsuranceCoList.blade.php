@@ -22,36 +22,20 @@
 
         <div class="card p-2">
             <div class="d-flex justify-content-between">
-                {{-- filter box --}}
-                <div style="width: 40%">
-                    <form action="/filterdoctors" method="get">
-                        @csrf
-                        <label class="form-check form-check-inline">
-                            <input name="statusCheck[]" class="form-check-input" type="radio" value="1">
-                            <span class="form-check-label">
-                                Active
-                            </span>
-                        </label>
-                        <label class="form-check form-check-inline">
-                            <input name="statusCheck[]" class="form-check-input" type="radio" value="0">
-                            <span class="form-check-label">
-                                Disabled
-                            </span>
-                        </label>
-
-                        <input type="submit" value="Filter" class="btn btn-info">
-                    </form>
-                </div>
+              
                 {{-- add company treger --}}
-                <button data-bs-toggle="modal" data-bs-target="#addCompany" class="btn btn-info" style="width: 20%">Add a
+                <div class="col-12 col-md-12 col-lg-6">
+                <button data-bs-toggle="modal" data-bs-target="#addCompany" class="btn btn-info" >Add a
                     Company</button>
+                </div>
+
                 {{-- Searche bar --}}
-                <div class="d-flex justify-content-end" style="width: 40%">
-                    <form action="/searchdocadmin" method="get">
+                <div class="col-12 col-md-12 col-lg-6 d-flex justify-content-end" >
+                    <form action="/searchCompanyadmin" method="get">
 
                         <div class="form-group">
                             <input style="padding-bottom: 5px;padding-left: 15px" type="text" name="query"
-                                placeholder="Enter the doctor id">
+                                placeholder="Enter company name">
                             <button type="submit" class="btn btn-info">Search</button>
                         </div>
                     </form>
@@ -60,9 +44,9 @@
             </div>
         </div>
 
-        <h1 class="h3 mb-3"><strong>Insurance Company</strong></h1>
+        <h1 class="card h3 p-2"><strong class="d-flex justify-content-center">Insurance Companys</strong></h1>
         @if (Auth::check())
-            <section class="team-section py-5">
+            <section class="team-section py-2">
                 <div class="container">
                     <div class="row justify-content-center">
                         <span class="d-flex justify-content-center">
@@ -71,7 +55,7 @@
                         @foreach ($InsuranceCo as $company)
                             <div class="col-12 col-md-6 col-lg-4">
 
-                                <div class="card border-0 shadow-lg  position-relative" {{-- @if ($message->status == 0) style="background-color: rgba(199, 28, 28, 0.208)" @endif --}}>
+                                <div class="card border-0 shadow-lg  position-relative" >
                                     <div class="card-body p-4">
 
                                         <div class="card-text">
@@ -277,12 +261,12 @@
                                                 <div class="row mb-3">
                                                     <label for="image"
                                                         class="col-md-4 col-form-label text-md-end">{{ __('Company Logo') }}</label>
-
+                        
                                                     <div class="col-md-6">
                                                         <input type="file" name="image"
-                                                            class="form-control @error('image') is-invalid @enderror"
-                                                            name="image" autofocus >
-
+                                                            class="form-control @error('image') is-invalid @enderror" name="image" required
+                                                            autofocus value="{{ old('image') }}">
+                        
                                                         @error('image')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
@@ -290,6 +274,7 @@
                                                         @enderror
                                                     </div>
                                                 </div>
+
 
 
 

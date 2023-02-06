@@ -18,7 +18,7 @@
                     Pages
                 </li>
 
-                <li class="sidebar-item active">
+                <li class="sidebar-item ">
                     <a class="sidebar-link" href="/admin_dashboard">
                         <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
                     </a>
@@ -32,7 +32,7 @@
 
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="/userList">
-                        <i class="align-middle" data-feather="user"></i> <span class="align-middle">Users Data</span>
+                        <i class="align-middle" data-feather="users"></i> <span class="align-middle">Users Data</span>
                     </a>
                 </li>
 
@@ -52,7 +52,7 @@
 
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="/InsuranceCo">
-                        <i class="align-middle" data-feather="info"></i> <span class="align-middle">Insurance Companys</span>
+                        <i class="align-middle" data-feather="heart"></i> <span class="align-middle">Insurance Companys</span>
                     </a>
                 </li>
 
@@ -104,17 +104,9 @@
                     <div class="col-6 text-end">
                         <ul class="list-inline">
                             <li class="list-inline-item">
-                                <a class="text-muted" href="" target="_blank">Support</a>
+                                <a class="text-muted" href="/contactUs" target="_blank">Contact Us</a>
                             </li>
-                            <li class="list-inline-item">
-                                <a class="text-muted" href="" target="_blank">Help Center</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a class="text-muted" href="" target="_blank">Privacy</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a class="text-muted" href="" target="_blank">Terms</a>
-                            </li>
+                           
                         </ul>
                     </div>
                 </div>

@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <?php date_default_timezone_set('Asia/Amman');  ?>
+    <?php date_default_timezone_set('Asia/Amman'); ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -49,8 +49,8 @@
     <link href="css/style.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="{{ asset('public/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet" />
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
@@ -84,7 +84,7 @@
                         support@medica.com</a>
                     <span class="text-body"> | </span>
                     <a class="text-decoration-none text-body px-3" href=""><i class="fa fa-calendar-plus-o"></i>
-                        {{ date("H:i")}} {{ date('l') }} {{date("Y-m-d")}}</a>
+                        {{ date('H:i') }} {{ date('l') }} {{ date('Y-m-d') }}</a>
                 </div>
             </div>
             <div class="col-md-6 text-center text-lg-end">
@@ -95,11 +95,11 @@
                     <a class="text-body px-2" href="">
                         <i class="fab fa-twitter"></i>
                     </a>
-                
+
                     <a class="text-body px-2" href="">
                         <i class="fab fa-instagram"></i>
                     </a>
-                   
+
                 </div>
             </div>
         </div>
@@ -166,10 +166,10 @@
                                 </a>
 
                                 <a class="dropdown-item"
-                                @if (Auth::user()->user_role === 2) href="{{ route('userprofile.index') }}" @endif
-                                @if (Auth::user()->user_role === 1) href="{{ route('userprofileAdmin.index') }}" @endif
-                                @if (Auth::user()->user_role === 3) href="{{ route('userprofileDoctor.index') }}" @endif  
-                                >My Profile</a>
+                                    @if (Auth::user()->user_role === 2) href="{{ route('userprofile.index') }}" @endif
+                                    @if (Auth::user()->user_role === 1) href="{{ route('userprofileAdmin.index') }}" @endif
+                                    @if (Auth::user()->user_role === 3) href="{{ route('userprofileDoctor.index') }}" @endif>My
+                                    Profile</a>
 
                                 <a class="dropdown-item" @if (Auth::user()->user_role === 1) href="/admin_dashboard" @endif
                                     @if (Auth::user()->user_role === 2) href="/user_dashboard" @endif

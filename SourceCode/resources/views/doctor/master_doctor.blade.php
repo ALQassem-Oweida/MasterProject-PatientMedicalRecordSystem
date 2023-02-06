@@ -42,7 +42,8 @@
 
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="{{ route('appointments.index') }}">
-                        <i class="align-middle" data-feather="calendar"></i> <span class="align-middle">Appointments</span>
+                        <i class="align-middle" data-feather="calendar"></i> <span
+                            class="align-middle">Appointments</span>
                     </a>
                 </li>
 
@@ -94,22 +95,15 @@
                     <div class="col-6 text-end">
                         <ul class="list-inline">
                             <li class="list-inline-item">
-                                <a class="text-muted" href="" target="_blank">Support</a>
+                                <a class="text-muted" href="/contactUs" target="_blank">Contact Us</a>
                             </li>
-                            <li class="list-inline-item">
-                                <a class="text-muted" href="" target="_blank">Help Center</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a class="text-muted" href="" target="_blank">Privacy</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a class="text-muted" href="" target="_blank">Terms</a>
-                            </li>
+
                         </ul>
                     </div>
                 </div>
             </div>
         </footer>
+
 
 
 

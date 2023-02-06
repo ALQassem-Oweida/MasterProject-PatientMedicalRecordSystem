@@ -55,6 +55,7 @@ Route::middleware('role:1')->group(function () {
     Route::post('/update-status', 'App\Http\Controllers\Admin\MessagesListingController@updateStatus');
     Route::resource('/messages', MessagesListingController::class);
     Route::resource('/InsuranceCo', JordanInsuranceController::class);
+    Route::get('/searchCompanyadmin', 'App\Http\Controllers\Admin\JordanInsuranceController@search');
 });
 
 
