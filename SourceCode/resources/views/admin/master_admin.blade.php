@@ -150,3 +150,6 @@
 </script>
 
 </body>
+
+
+{{-- @include('layouts.footer') --}}

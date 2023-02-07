@@ -99,9 +99,10 @@
                                             <td>{{ $row->date_of_birth }}</td>
                                             <td>{{ $row->address }}</td>
                                             <td>
+                                                 <!-- triger modal add user-->
                                                 <button data-bs-toggle="modal"
                                                     data-bs-target="#EditUserInfo{{ $row->id }}"
-                                                    class="btn btn-info">Edit</button>
+                                                    class="btn btn-primary">Edit</button>
                                             </td>
 
                                             <!-- Modal add user-->

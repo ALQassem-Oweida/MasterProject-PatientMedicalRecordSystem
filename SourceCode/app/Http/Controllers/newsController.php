@@ -24,7 +24,7 @@ class newsController extends Controller
             $client = new Client();
             $response = $client->get("https://newsapi.org/v2/everything?q=medicine&from=".$date."&apiKey=f3fee882f416472ba39e7cc918bbc374STOP");
             $data = json_decode($response->getBody()->getContents(), true);
-            // print_r($data['articles'][0]['content'] );
+            // dd($data['articles'][0]['content'] );
             return view('layouts.news', compact('data'));
         } catch (Exception $e) {
             $data['articles'][0]['description']="Sorry ! we are updating the news list at the moment.";

@@ -1,6 +1,6 @@
 <!-- Footer Start -->
-<div class="container-fluid bg-dark text-light mt-5 py-5">
-    <div class="container py-5">
+<div class="container-fluid bg-dark text-light py-4">
+    <div class="container py-4">
         <div class="row g-5">
             <div class="col-lg-5 col-md-6">
                 <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">

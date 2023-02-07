@@ -9,6 +9,8 @@
             </div>
         @endif
 
+
+
         @if (Auth::check())
             <div class="card p-2">
                 <div class="container">
@@ -49,13 +51,15 @@
                     </div>
                 </div>
             </div>
+
+            <h1 class="card h3 p-2"><strong class="d-flex justify-content-center">Messages List</strong></h1>
+            <span class="d-flex justify-content-center">
+                {{ $messages->links() }}
+            </span>
             <div class="row">
                 <div class="col-12 col-lg-8 col-xxl-12 d-flex p-3">
                     <div class="card flex-fill p-2">
-                        <div class="card-header">
-
-                            <h5 class="card-title mb-0">Messages List</h5>
-                        </div>
+                      
 
                         <section class="team-section py-5">
                             <div class="container">
@@ -104,7 +108,7 @@
                                                                 <label for="status">Change status to readed</label>
                                                             @endif
 
-                                                            <button type="submit" class="btn btn-info btn-sm">Save</button>
+                                                            <button type="submit" class="btn btn-primary btn-sm">Save</button>
 
                                                         </form>
                                                     </ul>
@@ -123,10 +127,7 @@
                             </div>
 
                         </section>
-                        <span>
-
-                            {{ $messages->links() }}
-                        </span>
+                   
                     </div>
                 </div>
 

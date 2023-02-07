@@ -96,30 +96,110 @@
                                             <td>{{ $row->userinfo->FName }}</td>
                                             <td>{{ $row->email }}</td>
                                             <td>{{ $row->phone }}</td>
-
                                             @if ($row->status == 1)
-                                                <form class="float-end" method="post"
-                                                    action="{{ route('doctorList.destroy', $row->id) }}">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <input type="hidden" name="status" value="{{ $row->status }}">
-                                                    <td><input
-                                                            onclick="return confirm('Are you sure you want to Disable this doctor?')"
-                                                            type="submit" class="btn btn-danger btn-sm" value="Disable" />
-                                                    </td>
-                                                </form>
-                                            @elseif($row->status == 0)
-                                                <form class="float-end" method="post"
-                                                    action="{{ route('doctorList.destroy', $row->id) }}">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <input type="hidden" name="status" value="{{ $row->status }}">
-                                                    <td><input
-                                                            onclick="return confirm('Are you sure you want to Enable this doctor?')"
-                                                            type="submit" class="btn btn-success btn-sm" value="Enable" />
-                                                    </td>
-                                                </form>
-                                            @endif
+                                            <input type="hidden" name="status" value="{{ $row->status }}">
+                                            <td>
+
+                                                <!-- Button trigger modal Disable user -->
+                                                <button type="button" class="btn btn-danger btn-sm"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#DisablePopUp{{ $row->id }}">
+                                                    Disable
+                                                </button>
+
+                                                <!-- Disable user Modal -->
+                                                <div class="modal fade" id="DisablePopUp{{ $row->id }}"
+                                                    tabindex="-1" aria-labelledby="exampleModalLabel"
+                                                    aria-hidden="true">
+
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                                                    Disable doctor
+                                                                </h1>
+                                                                <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <form method="post"
+                                                                action="{{ route('doctorList.destroy', $row->id) }}"
+                                                                enctype="multipart/form-data">
+                                                                <div class="modal-body">
+
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <input type="hidden" name="status"
+                                                                        value="{{ $row->status }}">
+
+                                                                    Are you sure you want to Disable
+                                                                    this doctor?
+
+
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal">Close</button>
+                                                                    <button type="submit"
+                                                                        class="btn btn-danger">Disable</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+                                            </td>
+                                        @elseif($row->status == 0)
+                                            <td>
+                                                <!-- Button trigger modal Enable user -->
+                                                <button type="button" class="btn btn-success btn-sm"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#EnablePopUp{{ $row->id }}">
+                                                    Enable
+                                                </button>
+
+                                                <!-- Enable user Modal -->
+                                                <div class="modal fade" id="EnablePopUp{{ $row->id }}"
+                                                    tabindex="-1" aria-labelledby="exampleModalLabel"
+                                                    aria-hidden="true">
+
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                                                    Enable doctor
+                                                                </h1>
+                                                                <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <form method="post"
+                                                                action="{{ route('doctorList.destroy', $row->id) }}"
+                                                                enctype="multipart/form-data">
+                                                                <div class="modal-body">
+
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <input type="hidden" name="status"
+                                                                        value="{{ $row->status }}">
+
+                                                                    Are you sure you want to Enable this doctor?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal">Close</button>
+                                                                    <button type="submit"
+                                                                        class="btn btn-success">Enable</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+                                            </td>
+                                        @endif
 
                                         </tr>
                                     @endforeach

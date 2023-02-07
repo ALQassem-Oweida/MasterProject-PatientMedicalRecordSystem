@@ -22,19 +22,19 @@
 
         <div class="card p-2">
             <div class="container">
-                <div class="row">
+                <div class="row d-flex justify-content-between">
 
                     {{-- add company treger --}}
-                    <div class="col-12 col-md-12 col-lg-6">
+                    <div class="col-12 col-md-12 col-lg-8">
                         <button data-bs-toggle="modal" data-bs-target="#addCompany" class="btn btn-info">Add a
                             Company</button>
                     </div>
 
                     {{-- Searche bar --}}
-                    <div class="col-12 col-md-12 col-lg-6 d-flex justify-content-end">
+                    <div class="col-12 col-md-12 col-lg-4 d-flex justify-content-end">
                         <form action="/searchCompanyadmin" method="get">
 
-                            <div class="form-group">
+                            <div class="form-group ">
                                 <input style="padding-bottom: 5px;padding-left: 15px" type="text" name="query"
                                     placeholder="Enter company name">
                                 <button type="submit" class="btn btn-info">Search</button>
@@ -76,53 +76,90 @@
                                         </div>
                                     </div>
                                     <!--//card-body-->
-                                    <div class="card-footer theme-bg-primary border-0 text-start">
-                                        <ul class="social-list list-inline mb-0 mx-auto">
-                                            <li class="list-inline-item">
-                                                <i class="align-middle" data-feather="mail"></i> <span class="align-middle">
+                                    <div class="card-footer theme-bg-primary border-0 text-center">
+                                        <div class="row d-flex justify-content-center">
+                                            <ul class="social-list list-inline mb-0 mx-auto">
+                                                <li class="list-inline-item">
+                                                    <i class="align-middle" data-feather="mail"></i> <span
+                                                        class="align-middle">
 
-                                                    {{ $company->email }}
+                                                        {{ $company->email }}
 
-                                                </span>
-                                            </li>
-                                        </ul>
-                                        <ul class="social-list list-inline mb-0 mx-auto">
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                            <ul class="social-list list-inline mb-0 mx-auto">
 
-                                            <li class="list-inline-item">
-                                                <i class="align-middle" data-feather="phone"></i> <span
-                                                    class="align-middle">
+                                                <li class="list-inline-item">
+                                                    <i class="align-middle" data-feather="phone"></i> <span
+                                                        class="align-middle">
 
-                                                    {{ $company->phone }}
+                                                        {{ $company->phone }}
 
-                                                </span>
-                                            </li>
-                                        </ul>
-                                        <ul class="social-list list-inline mb-0 mx-auto">
-                                            <li class="list-inline-item">
-                                                <i class="align-middle" data-feather="compass"></i> <span
-                                                    class="align-middle">
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                            <ul class="social-list list-inline mb-0 mx-auto">
+                                                <li class="list-inline-item">
+                                                    <i class="align-middle" data-feather="compass"></i> <span
+                                                        class="align-middle">
 
-                                                    {{ $company->address }}
+                                                        {{ $company->address }}
 
 
 
-                                                </span>
-                                            </li>
-                                        </ul>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
 
-                                        <div class="row d-flex justify-content-end py-3">
+
+                                        <div class="row d-flex justify-content-evenly py-4">
                                             {{-- Edit company treger --}}
                                             <button data-bs-toggle="modal" data-bs-target="#editCompany{{ $company->id }}"
-                                                class="btn btn-info btn-sm col-4 col-md-4 col-lg-5">Edite</button>
-                                            <form method="post" class="col-4 col-md-4 col-lg-5"
-                                                action="{{ route('InsuranceCo.destroy', $company->id) }}">
-                                                @csrf
-                                                @method('DELETE')
+                                                class="btn btn-primary btn-sm col-4 col-md-4 col-lg-4">Edite</button>
 
-                                                <button
-                                                    onclick="return confirm('Are you sure you want to delet this company?')"
-                                                    type="submit" class="btn btn-danger btn-sm">delete</button>
-                                            </form>
+
+                                            <!-- Delete Company modal trigger   -->
+                                            <button type="button" class="col-4 col-md-4 col-lg-4 btn btn-danger btn-sm"
+                                                data-bs-toggle="modal" data-bs-target="#deleteCompany{{ $company->id }}">
+                                                Delete
+                                            </button>
+
+                                            <!-- Delete Company  Modal -->
+                                            <div class="modal fade" id="deleteCompany{{ $company->id }}" tabindex="-1"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                                                Delete insurance company
+                                                            </h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
+                                                        </div>
+
+                                                        <div class="modal-body">
+                                                            Are you sure you want to delete this company
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <form method="post"
+                                                                action="{{ route('InsuranceCo.destroy', $company->id) }}"
+                                                                enctype="multipart/form-data">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Close</button>
+                                                                <button type="submit"
+                                                                    class="btn btn-danger">Delete</button>
+                                                            </form>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
 
                                         </div>
 

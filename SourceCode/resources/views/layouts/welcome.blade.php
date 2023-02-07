@@ -1,5 +1,18 @@
 @extends('layouts.master')
 @section('content2')
+    <div id="news-container">
+
+        <marquee id="news-text" behavior="scroll" direction="left">
+
+            @for ($i = 0; $i < count($data['articles']); $i++)
+                <span style="color: blue;font-weight: bold">{{ $data['articles'][$i]['source']['name'] }}</span> :
+                {{ $data['articles'][$i]['description'] }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @endfor
+
+        </marquee>
+
+
+    </div>
 
 
     <!-- intro Start -->
