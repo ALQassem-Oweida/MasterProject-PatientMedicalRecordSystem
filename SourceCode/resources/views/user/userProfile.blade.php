@@ -2,7 +2,7 @@
 @section('user_content')  
 
 
-    <div class="container mt-5">
+    <div class="container ">
         <h1 class="card h3 p-2"><strong class="d-flex justify-content-center">Profile Informations</strong></h1>
         <div class="main-body">
             <div class="row">

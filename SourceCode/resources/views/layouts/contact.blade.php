@@ -43,7 +43,7 @@
                             style="width: 100px; height: 70px; transform: rotate(-15deg);">
                             <i class="fa fa-2x fa-envelope-open text-white" style="transform: rotate(15deg);"></i>
                         </div>
-                        <h6 class="mb-0">support@medica.com</h6>
+                        <h6 class="mb-0">medica.suportt@gmail.com</h6>
                     </div>
                 </div>
             </div>

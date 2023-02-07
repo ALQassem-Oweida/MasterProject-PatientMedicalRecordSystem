@@ -5,12 +5,15 @@ use App\Models\contactus;
 use App\Models\JordanCoInsurance;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller {
   public function __construct() {
     $this->middleware('auth');
   }
   public function index() {
+
     $usersCount = User::where('user_role',2)->count();
     $doctorsCount = User::where('user_role',3)->count();
     $Messages = contactus::count();

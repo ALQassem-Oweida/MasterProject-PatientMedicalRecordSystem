@@ -6,6 +6,7 @@
     // date_default_timezone_set('Asia/Amman');
     ?>
     <?php date_default_timezone_set('Asia/Aden'); ?>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,43 +18,39 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    <!-- CSS only -->
-    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"> --}}
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
 
 
     <!-- Scripts -->
     @viteReactRefresh
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
     <script src="{{ asset('js/app.js') }}"></script>
+ 
 
 
     {{-- bootstrap css --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-
-
     <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
 
 
 
 
-    {{-- user_master --}}
+    {{-- user_master_dash_styles --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
 
 
-
-
-
-
-
-
-    <!-- Template Stylesheet -->
+    <!-- Website Pages Styles -->
     <link href="css/style.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
     <link href="{{ asset('public/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet" />
+  
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
@@ -63,11 +60,7 @@
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap"
-        rel="stylesheet">
+
 
 
 
@@ -88,7 +81,7 @@
                         109 976</a>
                     <span class="text-body">|</span>
                     <a class="text-decoration-none text-body px-3" href=""><i class="fa fa-envelope"></i>
-                        support@medica.com</a>
+                        medica.suportt@gmail.com</a>
                     <span class="text-body"> | </span>
                     <a class="text-decoration-none text-body px-3" href=""><i class="fa fa-calendar-plus-o"></i>
                         {{ date('H:i') }} {{ date('l') }} {{ date('Y-m-d') }}</a>

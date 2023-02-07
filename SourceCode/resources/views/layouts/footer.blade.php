@@ -7,7 +7,7 @@
                     Get In Touch</h4>
                 <p class="mb-4">One Place For every thinhg you need</p>
                 <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>Prs. Basmah St, Amman, Jordan</p>
-                <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>support@medica.com</p>
+                <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>medica.suportt@gmail.com</p>
                 <p class="mb-0"><i class="fa fa-phone-alt text-primary me-3"></i>+ 962 787 109 976</p>
             </div>
             <div class="col-lg-4 col-md-6">
@@ -56,14 +56,14 @@
 
 <!-- Footer End -->
 <!-- SCRIPTS -->
-<script src="{{ asset('js/jquery.js') }}"></script>
+{{-- <script src="{{ asset('js/jquery.js') }}"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('js/jquery.sticky.js') }}"></script>
 <script src="{{ asset('js/jquery.stellar.min.js') }}"></script>
 <script src="{{ asset('js/wow.min.js') }}"></script>
 <script src="{{ asset('js/smoothscroll.js') }}"></script>
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('js/custom.js') }}"></script>
+<script src="{{ asset('js/custom.js') }}"></script> --}}
 
 </body>
 

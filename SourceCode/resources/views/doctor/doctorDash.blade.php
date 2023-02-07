@@ -1,6 +1,6 @@
 @extends('doctor.master_doctor')
 @section('doctor_content')
-    <h1 class="card h3 p-2"><strong class="d-flex justify-content-center">Doctor Dashboard</strong></h1>
+    <h1 class="card h3 p-2"><strong class="d-flex justify-content-center">Welcome Dr. {{$info[0]->FName}}</strong></h1>
     <div class="row">
         <div class="col-xl-8 col-xxl-7 d-flex">
             <div class="w-100">

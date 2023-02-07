@@ -1,7 +1,7 @@
 @extends('user.userdash')
 @section('user_content')
     <div class="row">
-        <h1 class="card h3 p-2"><strong class="d-flex justify-content-center">User Dashboard</strong></h1>
+        <h1 class="card h3 p-2"><strong class="d-flex justify-content-center">Welcome Mr. {{$info[0]->FName}}</strong></h1>
         <div class="col-xl-12 col-xxl-8 d-flex">
             <div class="w-100">
                 <div class="row">
