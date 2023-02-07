@@ -58,7 +58,7 @@
 
                                 <div class="form-group">
                                     <input style="padding-bottom: 5px;padding-left: 15px" type="text" name="query"
-                                        placeholder="Enter the doctor id">
+                                        placeholder="Enter the user id">
                                     <button type="submit" class="btn btn-info">Search</button>
                                 </div>
                             </form>

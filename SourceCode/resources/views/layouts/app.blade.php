@@ -2,7 +2,10 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <?php date_default_timezone_set('Asia/Amman'); ?>
+    <?php
+        // date_default_timezone_set('Asia/Amman');
+        ?>
+    <?php date_default_timezone_set('Asia/Aden'); ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -135,8 +138,7 @@
                     <!-- Authentication Links -->
                     <li class="nav-item"><a href='/' class="nav-link">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="/aboutUs">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link">Doctors</a></li>
-                    <li class="nav-item"><a class="nav-link">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/news">News</a></li>
                     <li class="nav-item"><a href="/contactUs" class="nav-link">Contact</a></li>
 
                     @guest
