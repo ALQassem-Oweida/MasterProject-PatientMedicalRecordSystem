@@ -51,10 +51,15 @@ class RegisterController extends Controller
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'password' => ['required', 'string', 'min:8', 'max:12', 'confirmed'],
                 'phone' => ['required','regex:(^[0-9]+$)'],
+
             ]);
         } else {
             return Validator::make($data, [
                 'national_id' => ['required', 'regex:/(^[0-9]+$)+/','min:10', 'max:10', 'unique:users', 'in:This is is not avilable at oure system'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'password' => ['required', 'string', 'min:8', 'max:12', 'confirmed'],
+                'phone' => ['required','regex:(^[0-9]+$)'],
+              
             ], [
                 'national_id.in' => 'This national ID is not available at our system',
             ]);

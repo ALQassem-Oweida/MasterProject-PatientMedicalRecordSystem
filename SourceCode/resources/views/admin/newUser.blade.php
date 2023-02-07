@@ -22,6 +22,7 @@
 
 
         @if (Auth::check())
+        <h1 class="card h3 p-2"><strong class="d-flex justify-content-center">Users Infos</strong></h1>
             <div class="card p-2">
                 <div class="container">
                     <div class="row">

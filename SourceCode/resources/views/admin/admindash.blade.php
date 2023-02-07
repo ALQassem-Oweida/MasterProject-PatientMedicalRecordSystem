@@ -1,5 +1,6 @@
 @extends('admin.master_admin')
 @section('admin_content')
+<h1 class="card h3 p-2"><strong class="d-flex justify-content-center">Admin Dashboard</strong></h1>
     <div class="row">
         <div class="col-xl-8 col-xxl-9 d-flex">
             <div class="w-100">

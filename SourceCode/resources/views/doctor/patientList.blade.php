@@ -3,7 +3,7 @@
 
 
     <div class="container">
-
+        <h1 class="card h3 p-2"><strong class="d-flex justify-content-center">Patients List</strong></h1>
 
         @if ($message = Session::get('success'))
             <div class="alert alert-success text-center">
@@ -37,8 +37,6 @@
                 <div class="col-12 col-lg-8 col-xxl-12 d-flex p-3">
                     <div class="card flex-fill p-2">
                         <div class="card-header">
-
-                            <h5 class="card-title mb-0">Patients List</h5>
                         </div>
                         <div class="table-responsive">
                             <table class="table table-striped">

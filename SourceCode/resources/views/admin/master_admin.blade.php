@@ -2,63 +2,65 @@
 
 
 
+
+
 <div class="wrapper">
 
 
 
     {{-- nav --}}
-    <nav id="sidebar" class="sidebar js-sidebar">
-        <div class="sidebar-content js-simplebar">
-            <a class="sidebar-brand" href="">
+    <nav id="sidebar" class="sidebar js-sidebar" style="background-color: #18181887">
+        <div class="sidebar-content js-simplebar"  style="background-color: #18181887">
+            <a class="sidebar-brand" >
                 <span class="align-middle">Admin Dashboard</span>
             </a>
 
-            <ul class="sidebar-nav">
-                <li class="sidebar-header">
+            <ul class="sidebar-nav" >
+                <li class="sidebar-header" >
                     Pages
                 </li>
 
                 <li class="sidebar-item ">
-                    <a class="sidebar-link" href="/admin_dashboard">
+                    <a class="sidebar-link" href="/admin_dashboard" style="background-color: #18181887;color:white">
                         <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('userprofileAdmin.index') }}">
+                    <a class="sidebar-link" href="{{ route('userprofileAdmin.index') }}" style="background-color: #18181887;color:white">
                         <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
                     </a>
 
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="/userList">
+                    <a class="sidebar-link" href="/userList" style="background-color: #18181887;color:white">
                         <i class="align-middle" data-feather="users"></i> <span class="align-middle">Users Data</span>
                     </a>
                 </li>
 
              
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="/doctorList">
+                    <a class="sidebar-link" href="/doctorList" style="background-color: #18181887;color:white">
                         <i class="align-middle" data-feather="book"></i> <span class="align-middle">Doctors Data</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="/registeruser">
+                    <a class="sidebar-link" href="/registeruser" style="background-color: #18181887;color:white">
                         <i class="align-middle" data-feather="plus"></i> <span class="align-middle">Users
                             infos</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="/messages">
+                    <a class="sidebar-link" href="/messages" style="background-color: #18181887;color:white">
                         <i class="align-middle" data-feather="message-square"></i> <span
                             class="align-middle">Messages</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="/InsuranceCo">
+                    <a class="sidebar-link" href="/InsuranceCo" style="background-color: #18181887;color:white">
                         <i class="align-middle" data-feather="heart"></i> <span class="align-middle">Insurance
                             Companys</span>
                     </a>

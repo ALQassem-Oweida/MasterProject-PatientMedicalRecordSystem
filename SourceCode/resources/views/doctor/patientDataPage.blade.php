@@ -22,13 +22,13 @@
 
     @if (Auth::check())
         @foreach ($users as $row)
+            <h1 class="card h3 p-2"><strong class="d-flex justify-content-center">{{ $row->userinfo->FName }}
+                    {{ $row->userinfo->LName }}
+                    Medical Details</strong></h1>
+
             <div class="container-fluid p-0">
 
-                <div class="mb-3">
-                    <h1 class="h3 d-inline align-middle">{{ $row->userinfo->FName }} {{ $row->userinfo->LName }}
-                        Medical Details</h1>
 
-                </div>
                 <div class="row">
                     <div class="col-sm-10 col-md-12 col-xl-3">
                         <div class="card mb-3">

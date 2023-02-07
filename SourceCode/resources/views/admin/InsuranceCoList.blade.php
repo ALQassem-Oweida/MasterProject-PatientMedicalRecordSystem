@@ -19,8 +19,9 @@
             </div>
         @endif
 
-
+        <h1 class="card h3 p-2"><strong class="d-flex justify-content-center">Insurance Companys</strong></h1>
         <div class="card p-2">
+
             <div class="container">
                 <div class="row d-flex justify-content-between">
 
@@ -46,7 +47,7 @@
             </div>
         </div>
 
-        <h1 class="card h3 p-2"><strong class="d-flex justify-content-center">Insurance Companys</strong></h1>
+
         @if (Auth::check())
             <section class="team-section py-2">
                 <div class="container">

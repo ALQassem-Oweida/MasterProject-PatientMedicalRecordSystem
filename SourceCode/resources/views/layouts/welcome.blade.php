@@ -207,6 +207,106 @@
     <!-- Services End -->
 
 
+
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+                <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Insurance company</h5>
+                <h1 class="display-4">Jordanian insurance companys</h1>
+            </div>
+            <div class="row justify-content-center">
+                <span class="d-flex justify-content-center">
+                    {{ $InsuranceCo->links() }}
+                </span>
+                @foreach ($InsuranceCo as $company)
+                    <div class="col-12 col-md-6 col-lg-3">
+
+                        <div class="card border-0 shadow-lg  position-relative">
+                            <div class="card-body p-4">
+
+                                <div class="card-text">
+                                    <h5 class="member-name mb-2 text-center text-primary font-weight-bold">
+                                        <a href={{ $company->website }} target="_blank"
+                                            title="Go to Company Website">
+                                            <img src="/InsuranceCoimages/{{ $company->image }}" alt="file_img"
+                                                style="max-width: 100%;height: auto;">
+                                        </a>
+                                    </h5>
+                                    <div class="mb-3 text-center fw-bold ">
+                                        {{ $company->name }}<br>
+                                        ({{ $company->foundation_year }})
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!--//card-body-->
+                            <div class="card-footer theme-bg-primary border-0 text-center">
+                                <div class="row d-flex justify-content-center">
+                                    <ul class="social-list list-inline mb-0 mx-auto">
+                                        <li class="list-inline-item">
+                                            <i class="align-middle" data-feather="mail"></i> <span
+                                                class="align-middle">
+
+                                                {{ $company->email }}
+
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    <ul class="social-list list-inline mb-0 mx-auto">
+
+                                        <li class="list-inline-item">
+                                            <i class="align-middle" data-feather="phone"></i> <span
+                                                class="align-middle">
+
+                                                {{ $company->phone }}
+
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    <ul class="social-list list-inline mb-0 mx-auto">
+                                        <li class="list-inline-item">
+                                            <i class="align-middle" data-feather="compass"></i> <span
+                                                class="align-middle">
+
+                                                {{ $company->address }}
+
+
+
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                            <!--//card-footer-->
+                        </div>
+                        <!--//card-->
+
+
+                    </div>
+
+                   
+                @endforeach
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <section class="team-section py-2">
+        <div class="container">
+           
+
+
+        </div>
+
+    </section>
+
+
    
     {{-- </div> --}}
+
+
 @endsection

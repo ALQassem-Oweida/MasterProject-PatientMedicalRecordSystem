@@ -7,32 +7,32 @@
 
 
     {{-- nav --}}
-    <nav id="sidebar" class="sidebar js-sidebar">
-        <div class="sidebar-content  js-simplebar">
-            <a class="sidebar-brand" href="">
+    <nav id="sidebar" class="sidebar js-sidebar" >
+        <div class="sidebar-content  js-simplebar" style="background-color: #6d8bb4;color:aliceblue">
+            <a class="sidebar-brand" >
                 <span class="align-middle">User Dashboard</span>
             </a>
 
             <ul class="sidebar-nav ">
-                <li class="sidebar-header">
+                <li class="sidebar-header" style="color:aliceblue">
                     Pages
                 </li>
 
-                <li class="sidebar-item active">
-                    <a class="sidebar-link " href="/user_dashboard">
+                <li class="sidebar-item ">
+                    <a class="sidebar-link " href="/user_dashboard" style="background-color: #6d8bb4;color:aliceblue">
                         <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link " href="{{ route('userprofile.index') }}">
+                    <a class="sidebar-link " href="{{ route('userprofile.index') }}" style="background-color: #6d8bb4;color:aliceblue">
                         <i class="align-middle" data-feather="user"></i> <span class="align-middle">Personal
                             information</span>
                     </a>
 
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link userside" href="{{ route('medicalhistory.index') }}">
+                    <a class="sidebar-link userside" href="{{ route('medicalhistory.index') }}" style="background-color: #6d8bb4;color:aliceblue">
                         <i class="align-middle" data-feather="activity"></i> <span class="align-middle">Medical
                             history</span>
                     </a>
@@ -43,14 +43,14 @@
 
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('medicalhistory2.index') }}">
+                    <a class="sidebar-link" href="{{ route('medicalhistory2.index') }}" style="background-color: #6d8bb4;color:aliceblue">
                         <i class="align-middle" data-feather="link-2"></i> <span class="align-middle">Current
                             medications</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="/userAppointments">
+                    <a class="sidebar-link" href="/userAppointments" style="background-color: #6d8bb4;color:aliceblue">
                         <i class="align-middle" data-feather="calendar"></i> <span class="align-middle">Appointments and
                             visits</span>
                     </a>
@@ -58,14 +58,14 @@
 
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="/userFiles">
+                    <a class="sidebar-link" href="/userFiles" style="background-color: #6d8bb4;color:aliceblue">
                         <i class="align-middle" data-feather="clipboard"></i> <span class="align-middle">Lab
                             results and documents</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="pages-blank.html">
+                    <a class="sidebar-link" href="pages-blank.html" style="background-color: #6d8bb4;color:aliceblue">
                         <i class="align-middle" data-feather="info"></i> <span class="align-middle">Insurance
                             information</span>
                     </a>

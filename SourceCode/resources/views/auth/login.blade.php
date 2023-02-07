@@ -65,7 +65,7 @@
                                             <label class="form-label" for="form2Example11">ID</label>
                                             <input id="national_id" type="text" maxlength="10"
                                                 class="form-control @error('national_id') is-invalid @enderror"
-                                                name="national_id" value="{{ old('national_id') }}" required
+                                                name="national_id" value="{{ old('national_id') }}" 
                                                 autocomplete="national_id" autofocus />
                                             @error('national_id')
                                                 <span class="invalid-feedback" role="alert">
@@ -78,7 +78,7 @@
                                             <label class="form-label" for="form2Example22">Password</label>
                                             <input id="password" type="password"
                                                 class="form-control @error('password') is-invalid @enderror" name="password"
-                                                required autocomplete="current-password">
+                                                 autocomplete="current-password">
 
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">

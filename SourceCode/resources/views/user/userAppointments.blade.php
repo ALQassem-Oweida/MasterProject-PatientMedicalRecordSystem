@@ -1,5 +1,5 @@
 @extends('user.userdash')
-@section('user_content') 
+@section('user_content')
 
     @if ($message = Session::get('success'))
         <div class="alert alert-success text-center">
@@ -7,7 +7,7 @@
         </div>
     @endif
 
-
+    <h1 class="card h3 p-2"><strong class="d-flex justify-content-center">Appointments</strong></h1>
     <div class="card p-2">
         <div class="row">
             {{-- filter box --}}
@@ -64,45 +64,45 @@
                     <table class="table table-bordered border-primary table-hover  text-center">
                         <thead>
                             <tr>
-            
+
                                 <th scope="col">Doctor Name</th>
                                 <th scope="col">Doctor Phone</th>
                                 <th scope="col">Date</th>
-                                <th scope="col">Time</th>               
+                                <th scope="col">Time</th>
                                 <th scope="col">Status</th>
-            
-            
+
+
                             </tr>
                         </thead>
                         <tbody>
-            
-            
+
+
                             @if ($appointments != null)
                                 @foreach ($appointments as $appointment)
                                     <tr>
-                                        <td>{{ $appointment->doctor->FName}} {{ $appointment->doctor->LName}}</td>
-                                        <td>{{ $appointment->doctorInfos->phone}}</td>
+                                        <td>{{ $appointment->doctor->FName }} {{ $appointment->doctor->LName }}</td>
+                                        <td>{{ $appointment->doctorInfos->phone }}</td>
                                         <td>{{ $appointment->date }}</td>
                                         <td>{{ $appointment->time }}</td>
-                                      
-                                      
-                                   
+
+
+
                                         @if ($appointment->status == 0)
                                             <td style="color: rgb(9, 84, 204);font-weight:bold">
-                                                Scheduled      
+                                                Scheduled
                                             </td>
                                         @elseif($appointment->status == 1)
                                             <td style="color: rgb(205, 20, 20);font-weight:bold"> Canceled</td>
                                         @else
                                             <td style="color:green;font-weight:bold">Done</td>
                                         @endif
-            
+
                                     </tr>
                                 @endforeach
                             @endif
-            
-            
-            
+
+
+
                         </tbody>
                     </table>
                 </div>

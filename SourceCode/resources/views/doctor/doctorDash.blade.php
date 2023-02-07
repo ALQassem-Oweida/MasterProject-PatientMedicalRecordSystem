@@ -1,7 +1,8 @@
 @extends('doctor.master_doctor')
 @section('doctor_content')
+    <h1 class="card h3 p-2"><strong class="d-flex justify-content-center">Doctor Dashboard</strong></h1>
     <div class="row">
-         <div class="col-xl-8 col-xxl-7 d-flex">
+        <div class="col-xl-8 col-xxl-7 d-flex">
             <div class="w-100">
                 <div class="row">
                     <div class="col-sm-6">
@@ -19,14 +20,14 @@
                                     </div>
                                 </div>
                                 <h1 class="mt-1 mb-3">
-                                    {{$appointmentsCount}}
-                                
+                                    {{ $appointmentsCount }}
+
                                 </h1>
-                             
+
                             </div>
                         </div>
-                     
-						
+
+
                     </div>
                     <div class="col-sm-6">
                         <div class="card">
@@ -43,20 +44,20 @@
                                     </div>
                                 </div>
                                 <h1 class="mt-1 mb-3">
-                                    
-                                    {{$patentsCount}}
+
+                                    {{ $patentsCount }}
 
                                 </h1>
-                               
+
                             </div>
                         </div>
-                     
+
                     </div>
-				
+
                 </div>
             </div>
-        </div> 
-		
+        </div>
+
 
         <div class="col col-md-12 col-xxl-5 d-flex order-1 order-xxl-1">
             <div class="card flex-fill">
@@ -73,7 +74,7 @@
                 </div>
             </div>
         </div>
-                
+
 
     </div>
 @endsection

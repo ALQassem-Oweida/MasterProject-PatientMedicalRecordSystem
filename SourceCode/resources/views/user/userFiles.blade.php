@@ -6,7 +6,7 @@
             {{ $message }}
         </div>
     @endif
-
+    <h1 class="card h3 p-2"><strong class="d-flex justify-content-center">Lab results and documents</strong></h1>
 
     <div class="card p-2">
         <div class="row">

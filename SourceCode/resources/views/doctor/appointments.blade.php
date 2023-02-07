@@ -6,7 +6,7 @@
         </div>
     @endif
 
-
+    <h1 class="card h3 p-2"><strong class="d-flex justify-content-center">Appointments</strong></h1>
     <div class="card p-2">
         <div class="row">
             {{-- filter box --}}
@@ -56,7 +56,7 @@
             <div class="card flex-fill p-2">
                 <div class="card-header">
 
-                    <h5 class="card-title mb-0">Appointments</h5>
+                    
                 </div>
 
                 <div class="table-responsive">

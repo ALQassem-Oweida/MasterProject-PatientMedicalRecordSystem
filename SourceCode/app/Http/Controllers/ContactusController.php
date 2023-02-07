@@ -30,7 +30,7 @@ class ContactUsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'         => 'required|min:2|max:40',
+            'name'         => 'required|min:2|max:40|regex:(^[a-zA-Z ]+$)',
             'email'        => 'required|email',
             'subject'      => 'required|min:3|max:15',
             'message'      => 'required|max:250|min:10'

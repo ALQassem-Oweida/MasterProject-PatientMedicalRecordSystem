@@ -1,9 +1,7 @@
 @extends('user.userdash')
-@section('user_content')  
-
+@section('user_content')
     <div class="row">
-
-		
+        <h1 class="card h3 p-2"><strong class="d-flex justify-content-center">User Dashboard</strong></h1>
         <div class="col-xl-12 col-xxl-8 d-flex">
             <div class="w-100">
                 <div class="row">
@@ -21,8 +19,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h1 class="mt-1 mb-3">{{$medicationsCount}}</h1>
-                              
+                                <h1 class="mt-1 mb-3">{{ $medicationsCount }}</h1>
+
                             </div>
                         </div>
                         <div class="card">
@@ -39,12 +37,12 @@
                                     </div>
                                 </div>
                                 <h1 class="mt-1 mb-3">
-                                    {{$appointmentsCountS}}
+                                    {{ $appointmentsCountS }}
                                 </h1>
-                             
+
                             </div>
                         </div>
-						
+
                     </div>
                     <div class="col-sm-6">
                         <div class="card">
@@ -61,10 +59,10 @@
                                     </div>
                                 </div>
                                 <h1 class="mt-1 mb-3">
-                          
-                                    {{$appointmentsCountD}}
+
+                                    {{ $appointmentsCountD }}
                                 </h1>
-                             
+
                             </div>
                         </div>
                         <div class="card">
@@ -81,18 +79,18 @@
                                     </div>
                                 </div>
                                 <h1 class="mt-1 mb-3">
-                                
-                                   {{$appointmentsCountC}}
-                                
+
+                                    {{ $appointmentsCountC }}
+
                                 </h1>
-                             
+
                             </div>
                         </div>
                     </div>
-					
+
                 </div>
             </div>
-        </div> 
+        </div>
 
         <div class="col col-md-10 xl-12 col-xxl-4 d-flex order-1 order-xxl-1">
             <div class="card flex-fill">

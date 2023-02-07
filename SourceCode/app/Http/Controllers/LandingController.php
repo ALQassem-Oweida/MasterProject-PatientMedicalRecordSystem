@@ -16,7 +16,7 @@ class LandingController extends Controller
     {
         $date= date("Y-m-d");
         
-        $InsuranceCo = JordanCoInsurance::all();
+        $InsuranceCo = JordanCoInsurance::paginate(4);
 
 
         try {

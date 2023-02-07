@@ -2,8 +2,8 @@
 @section('doctor_content') 
 
 
-    <div class="container mt-2">
-        
+    <div class="container ">
+        <h1 class="card h3 p-2"><strong class="d-flex justify-content-center">Profile Informations</strong></h1>
         <div class="main-body">
             
             <div class="row">
@@ -11,7 +11,7 @@
                 <div class="col-lg-8">
                     <div class="card">
                         <div class="card-body">
-                            <h1 class="h3 mb-3"><strong>Your Profile</strong> Data</h1>
+                        
                             <br>
                             <form method="post" action="{{ route('userprofileDoctor.update', $user->id) }}"
                                 enctype="multipart/form-data">

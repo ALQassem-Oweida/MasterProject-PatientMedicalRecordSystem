@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content2')
     <div class="privecy_policy_banner">
-        <h2 class="display-3 text-white"> MEDICA.com Terms of Use</h2>
+        <h2 class="display-3 text-white"> MEDICA.com privacy policy</h2>
     </div>
 
     <div class="container-fluid py-5">

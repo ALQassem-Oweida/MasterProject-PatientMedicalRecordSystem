@@ -3,8 +3,8 @@
 
 <head>
     <?php
-        // date_default_timezone_set('Asia/Amman');
-        ?>
+    // date_default_timezone_set('Asia/Amman');
+    ?>
     <?php date_default_timezone_set('Asia/Aden'); ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -68,6 +68,10 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap"
         rel="stylesheet">
+
+
+
+
 
 </head>
 
@@ -137,7 +141,7 @@
                 <ul class="navbar-nav ms-auto">
                     <!-- Authentication Links -->
                     <li class="nav-item"><a href='/' class="nav-link">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/aboutUs">About Us</a></li>   
+                    <li class="nav-item"><a class="nav-link" href="/aboutUs">About Us</a></li>
                     <li class="nav-item"><a href="/contactUs" class="nav-link">Contact</a></li>
 
                     @guest
