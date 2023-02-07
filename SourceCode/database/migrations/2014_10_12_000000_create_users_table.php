@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('national_id')->unique();
-            $table->bigInteger('status')->default(0);
+            $table->bigInteger('status')->default(1);
             $table->string('email')->unique();
             $table->string('phone');
             $table->string('img')->default('defultuserprofile.png');

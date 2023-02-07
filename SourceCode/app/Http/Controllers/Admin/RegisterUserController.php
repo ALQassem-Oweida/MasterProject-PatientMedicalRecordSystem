@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class RegisterUserController extends Controller
 
@@ -59,9 +60,9 @@ class RegisterUserController extends Controller
 
         $request->validate([
             'national_id' => ['required', 'regex:/(^[0-9]+$)+/', 'min:10', 'max:10', 'unique:users', 'unique:user_infos'],
-            'FName' => ['required', 'regex:(^[a-zA-Z]+$)'],
-            'MName' => ['required', 'regex:(^[a-zA-Z]+$)'],
-            'LName' => ['required', 'regex:(^[a-zA-Z]+$)'],
+            'FName' => ['required', 'regex:(^[a-zA-Z ]+$)'],
+            'MName' => ['required', 'regex:(^[a-zA-Z ]+$)'],
+            'LName' => ['required', 'regex:(^[a-zA-Z ]+$)'],
             'date_of_birth' => ['required'],
             'address' => ['required'],
         ]);
@@ -106,10 +107,11 @@ class RegisterUserController extends Controller
     {
 
         $request->validate([
-            'national_id' => ['required', 'regex:/(^[0-9]+$)+/', 'min:10', 'max:10', 'unique:user_infos'],
-            'FName' => ['required', 'regex:(^[a-zA-Z]+$)'],
-            'MName' => ['required', 'regex:(^[a-zA-Z]+$)'],
-            'LName' => ['required', 'regex:(^[a-zA-Z]+$)'],
+            'national_id' => ['required', 'regex:/(^[0-9]+$)+/', 'min:10', 'max:10',
+            Rule::unique('user_infos')->ignore($id),],
+            'FName' => ['required', 'regex:(^[a-zA-Z ]+$)'],
+            'MName' => ['required', 'regex:(^[a-zA-Z ]+$)'],
+            'LName' => ['required', 'regex:(^[a-zA-Z ]+$)'],
             'date_of_birth' => ['required'],
             'address' => ['required'],
         ]);

@@ -20,7 +20,7 @@
         <div class="container py-5">
             <div class="row justify-content-start">
                 <div class="col-lg-8 text-center text-lg-start">
-                    <h1 class="display-2 text-white mb-md-4">All your medical records in one place.</h1>
+                    <h1 class="display-2 text-white mb-md-4" style="text-transform:uppercase">All your medical records in one place.</h1>
                     <div class="pt-2">
                         <a class="btn btn-light rounded-pill py-md-3 px-md-5 mx-2"
                             href="{{ route('login') }}">{{ __('Login') }}</a>
