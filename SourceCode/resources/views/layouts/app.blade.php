@@ -92,14 +92,14 @@
             </div>
             <div class="col-md-6 text-center text-lg-end">
                 <div class="d-inline-flex align-items-center">
-                    <a class="text-body px-2" href="">
+                    <a class="text-body px-2" href="https://web.facebook.com/?_rdc=1&_rdr" target="_blanck">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a class="text-body px-2" href="">
+                    <a class="text-body px-2" href="https://twitter.com/?lang=en" target="_blanck">
                         <i class="fab fa-twitter"></i>
                     </a>
 
-                    <a class="text-body px-2" href="">
+                    <a class="text-body px-2" href="https://www.instagram.com/accounts/login/" target="_blanck">
                         <i class="fab fa-instagram"></i>
                     </a>
 
@@ -137,8 +137,7 @@
                 <ul class="navbar-nav ms-auto">
                     <!-- Authentication Links -->
                     <li class="nav-item"><a href='/' class="nav-link">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/aboutUs">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/news">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/aboutUs">About Us</a></li>   
                     <li class="nav-item"><a href="/contactUs" class="nav-link">Contact</a></li>
 
                     @guest

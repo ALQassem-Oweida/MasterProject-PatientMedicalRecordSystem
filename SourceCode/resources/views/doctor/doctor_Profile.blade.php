@@ -13,7 +13,7 @@
                         <div class="card-body">
                             <h1 class="h3 mb-3"><strong>Your Profile</strong> Data</h1>
                             <br>
-                            <form method="post" action="{{ route('userprofile.update', $user->id) }}"
+                            <form method="post" action="{{ route('userprofileDoctor.update', $user->id) }}"
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('PATCH')
@@ -30,7 +30,7 @@
 
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">National id</h6>
+                                        <h6 class="mb-0">Doctor id</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <input name="date_of_birth" type="text" class="form-control"

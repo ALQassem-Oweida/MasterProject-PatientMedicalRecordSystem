@@ -19,6 +19,7 @@
                     <a class="text-light" href="/contactUs"><i class="fa fa-angle-right me-2"></i>Contact Us</a>
                     <a class="text-light mb-2" href="{{ route('login') }}"><i class="fa fa-angle-right me-2"></i>Log In</a>
                     <a class="text-light mb-2" href="{{ route('register') }}"><i class="fa fa-angle-right me-2"></i>Register</a>
+                    <a class="text-light mb-2" href="/privacyPolicy"><i class="fa fa-angle-right me-2"></i>Privacy Policy</a>
 
                 </div>
             </div>
@@ -27,11 +28,11 @@
                 <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
                     Follow Us</h4>
                 <div class="d-flex">
-                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i
+                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="https://twitter.com/?lang=en" target="_blanck"><i
                             class="fab fa-twitter"></i></a>
-                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i
+                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="https://web.facebook.com/?_rdc=1&_rdr" target="_blanck"><i
                             class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="#"><i
+                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="https://www.instagram.com/accounts/login/" target="_blanck"><i
                             class="fab fa-instagram"></i></a>
                 </div>
             </div>

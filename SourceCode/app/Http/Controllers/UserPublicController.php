@@ -51,6 +51,7 @@ class UserPublicController extends Controller
         $request->validate([
             'name' => ['string', 'max:255'],
             'email' => ['string', 'email', 'max:255'],
+            'phone' => ['regex:(^[0-9]+$)'],
         ]);
 
         if ($request->img != "") {
@@ -79,7 +80,7 @@ class UserPublicController extends Controller
         
 
       
-        return redirect('userprofile')->with('success', $request->name . ' User Data update successfully');
+        return redirect()->back()->with('success', $request->name . ' User Data update successfully');
     }
 
 

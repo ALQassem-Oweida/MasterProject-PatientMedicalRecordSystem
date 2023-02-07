@@ -50,6 +50,7 @@ class RegisterController extends Controller
                 'national_id' => ['required', 'regex:/(^[0-9]+$)+/', 'min:10', 'max:10', 'unique:users'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'password' => ['required', 'string', 'min:8', 'max:12', 'confirmed'],
+                'phone' => ['required','regex:(^[0-9]+$)'],
             ]);
         } else {
             return Validator::make($data, [

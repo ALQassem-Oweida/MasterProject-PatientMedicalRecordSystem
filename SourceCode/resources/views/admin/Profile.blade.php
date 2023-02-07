@@ -16,7 +16,7 @@
                         <div class="card-body">
                             <h1 class="h3 mb-3"><strong>Your Profile</strong> Data</h1>
                             <br>
-                            <form method="post" action="{{ route('userprofile.update', $user->id) }}"
+                            <form method="post" action="{{ route('userprofileAdmin.update', $user->id) }}"
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('PATCH')

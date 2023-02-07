@@ -3,6 +3,7 @@
     <style>
         body {
             background-color: white;
+           
         }
 
         #app>main>section>div>div>div>div>div>div {
@@ -14,6 +15,7 @@
         .gradient-form {
 
             height: 100px;
+           
         }
 
         .gradient-custom-2 {
@@ -37,21 +39,21 @@
     </style>
 
 
-    <section class="gradient-form bg-white" style="background-color: #eee;">
-      
+    <section class="gradient-form bg-white" style="background-color: #eee; mb-3">
+
         <div class="container   bg-white">
-         
+
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-xl-10">
-                    <div class="card rounded-3 text-black mt-3 mb-5">
+                    <div class="card rounded-3 text-black mt-5 mb-1">
                         <div class="row g-0">
                             <div class="col-lg-6">
                                 <div class="card-body p-md-5 mx-md-4">
                                     @if (session('error'))
-                                    <div class="alert alert-danger">
-                                        {{ session('error') }}
-                                    </div>
-                                @endif
+                                        <div class="alert alert-danger">
+                                            {{ session('error') }}
+                                        </div>
+                                    @endif
                                     <div class="text-center">
                                         <img src="./images/logo.png" style="width: 185px;" alt="logo">
 
@@ -86,8 +88,12 @@
 
                                         </div>
 
+
+
+
+
                                         <div class="text-center pt-1 mb-5 pb-1">
-                                            <button type="submit" class="btn btn-primary btn-block fa-lg  mb-3">
+                                            <button type="submit" class="btn btn-primary mb-3">
                                                 {{ __('Login') }}
                                             </button>
                                         </div>
@@ -107,6 +113,25 @@
             </div>
         </div>
     </section>
+    {{-- Footer --}}
+    <footer class="footer" style="border-top:solid 1px black">
+        <div class="container-fluid">
+            <div class="row text-muted">
+                <div class="col-6 text-start">
+                    <p class="mb-0">
+                        <a class="text-muted" href="{{ url('/') }}"><strong> <span style="color: #A5C422">
+                                    M</span>EDICA</strong></a> &copy;
+                    </p>
+                </div>
+                <div class="col-6 text-end">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a class="text-muted" href="/contactUs" target="_blank">Contact Us</a>
+                        </li>
 
-
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 @endsection

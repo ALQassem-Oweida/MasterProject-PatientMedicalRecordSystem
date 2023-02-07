@@ -30,7 +30,10 @@ use App\Http\Controllers\UserPublicController;
 Route::resource('/', LandingController::class);
 Route::resource('/contactUs', ContactUsController::class);
 Route::resource('/aboutUs', AboutUsController::class);
-Route::resource('/news', newsController::class);
+Route::get('/privacyPolicy', function () {
+    return view('layouts.privecyPolicy');
+});
+
 
 
 
