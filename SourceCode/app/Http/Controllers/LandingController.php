@@ -21,7 +21,7 @@ class LandingController extends Controller
 
         try {
             $client = new Client();
-            $response = $client->get("https://newsapi.org/v2/everything?q=medicine&from=".$date."&apiKey=f3fee882f416472ba39e7cc918bbc374STOP");
+            $response = $client->get("https://newsapi.org/v2/everything?q=medicine&from=".$date."&apiKey=f3fee882f416472ba39e7cc918bbc374");
             $data = json_decode($response->getBody()->getContents(), true);
             // dd($data['articles'] );
             // dd($data['articles'][0]['content'] );
