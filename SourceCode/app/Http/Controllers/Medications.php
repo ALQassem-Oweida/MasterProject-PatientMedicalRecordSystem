@@ -17,7 +17,7 @@ class Medications extends Controller
     public function index()
     {
         $user_id=Auth::user()->id;
-        $m_infos = medical_history::where('user_id',$user_id)->paginate(4);
+        $m_infos = medical_history::where('user_id',$user_id)->whereNot('medication_name',null)->paginate(4);
        
  
 

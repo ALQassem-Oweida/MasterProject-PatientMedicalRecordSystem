@@ -20,12 +20,12 @@ class DashboardController extends Controller
   {
 
 
-
+    $date= date("Y-m-d");
     $id = Auth::user()->id;
     $info = DB::table('user_infos')->where('user_info_relation', $id)->get();
 
     // dd($info);
-    $appointmentsCount = Appointment::where('doctor_id', Auth::user()->id)->count();
+    $appointmentsCount = Appointment::where('doctor_id', Auth::user()->id)->where('date',$date)->count();
     $patentsCount = medical_history::where('add_by', Auth::user()->id)->count();
     return view('doctor/doctorDash', [
       'appointmentsCount' => $appointmentsCount,

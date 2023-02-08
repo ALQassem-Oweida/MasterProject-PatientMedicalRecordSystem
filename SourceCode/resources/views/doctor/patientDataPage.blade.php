@@ -42,18 +42,14 @@
                                 </h5>
                                 <div class="text-muted mb-2">{{ $row->userinfo->date_of_birth }}</div>
 
-                                <div>
-
-                                    <a class="btn btn-primary btn-sm" href="/"><span
-                                            data-feather="message-square"></span> Message</a>
-                                </div>
+                            
                             </div>
                             <hr class="my-0" />
                             <div class="card-body">
                                 <h5 class="h6 card-title">Medication</h5>
                                 @if ($m_infos != null)
                                     @foreach ($m_infos as $info)
-                                        @if ($info->medication_name != null)
+                                        @if ($info->medication_name != null && $info->medication_name != "")
                                             <a href='https://www.google.com/search?q={{ $info->medication_name }}'
                                                 class="badge bg-primary me-1 my-1" target="_blanck">
                                                 {{ $info->medication_name }}
@@ -67,7 +63,7 @@
                                 <h5 class="h6 card-title">Allergys</h5>
                                 @if ($m_infos != null)
                                     @foreach ($m_infos as $info)
-                                        @if ($info->medication_name != null)
+                                        @if ($info->allergy != null && $info->allergy != "")
                                             <a href='https://www.google.com/search?q={{ $info->allergy }}'
                                                 class="badge bg-primary me-1 my-1" target="_blanck">
                                                 {{ $info->allergy }}
