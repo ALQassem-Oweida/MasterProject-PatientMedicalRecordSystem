@@ -119,9 +119,6 @@
                                 <!-- Add appointment Modal -->
                                 <div class="modal fade" id="appointmentPopUp" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
-
-
-
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -143,25 +140,25 @@
                                                     <div class="form-group">
                                                         <label for="national_id">National ID</label>
                                                         <input type="text" class="form-control" id="national_id"
-                                                            name="national_id" value={{ $row->national_id }}>
+                                                            name="national_id" value={{ $row->national_id }} >
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="Fname">First Name:</label>
                                                         <input type="text" class="form-control" id="FName"
-                                                            name="FName" value={{ $row->userinfo->FName }}>
+                                                            name="FName" value={{ $row->userinfo->FName }} >
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="Lname">Last Name:</label>
                                                         <input type="text" class="form-control" id="LName"
-                                                            name="LName" value={{ $row->userinfo->LName }}>
+                                                            name="LName" value={{ $row->userinfo->LName }} >
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="phone">Phone Number:</label>
                                                         <input type="tel" class="form-control" id="phone"
-                                                            name="phone" value={{ $row->phone }}>
+                                                            name="phone" value={{ $row->phone }} >
                                                     </div>
 
                                                     <div class="form-group">

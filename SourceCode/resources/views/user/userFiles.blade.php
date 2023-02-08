@@ -50,8 +50,6 @@
         <div class="col-12 col-lg-8 col-xxl-12 d-flex p-3">
             <div class="card flex-fill p-2">
                 <div class="card-header">
-
-                    <h5 class="card-title mb-0">Documents</h5>
                 </div>
 
                 <div class="table-responsive ">

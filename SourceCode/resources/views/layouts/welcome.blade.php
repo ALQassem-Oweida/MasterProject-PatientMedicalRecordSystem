@@ -20,7 +20,8 @@
         <div class="container py-5">
             <div class="row justify-content-start">
                 <div class="col-lg-8 text-center text-lg-start">
-                    <h1 class="display-2 text-white mb-md-4" style="text-transform:uppercase">All your medical records in one place.</h1>
+                    <h1 class="display-2 text-white mb-md-4" style="text-transform:uppercase">All your medical records in one
+                        place.</h1>
                     <div class="pt-2">
                         <a class="btn btn-light rounded-pill py-md-3 px-md-5 mx-2"
                             href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -109,102 +110,24 @@
 
 
 
-    <!-- Services Start -->
-    <div class="container-fluid py-5">
+    <!-- Youtube Video Start -->
+    <section class="team-section py-5">
         <div class="container">
-            <div class="text-center mx-auto mb-5" style="max-width: 500px;">
-                <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Services</h5>
-                <h1 class="display-4">Excellent Medical Services</h1>
+            <div class="text-center mx-auto mb-5  mt-5" style="max-width: 500px;">
+                <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Whay medical recoreds?</h5>
+                <h1 class="display-4">Knowing is better than not knowing</h1>
             </div>
-            <div class="row g-5">
-                <div class="col-lg-4 col-md-6">
-                    <div
-                        class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                        <div class="service-icon mb-4">
-                            <i class="fa fa-2x fa-user-md text-white"></i>
-                        </div>
-                        <h4 class="mb-3">Emergency Care</h4>
-                        <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo
-                            elitr dolor amet sit</p>
-                        <a class="btn btn-lg btn-primary rounded-pill" href="">
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div
-                        class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                        <div class="service-icon mb-4">
-                            <i class="fa fa-2x fa-procedures text-white"></i>
-                        </div>
-                        <h4 class="mb-3">Operation & Surgery</h4>
-                        <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo
-                            elitr dolor amet sit</p>
-                        <a class="btn btn-lg btn-primary rounded-pill" href="">
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div
-                        class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                        <div class="service-icon mb-4">
-                            <i class="fa fa-2x fa-stethoscope text-white"></i>
-                        </div>
-                        <h4 class="mb-3">Outdoor Checkup</h4>
-                        <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo
-                            elitr dolor amet sit</p>
-                        <a class="btn btn-lg btn-primary rounded-pill" href="">
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div
-                        class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                        <div class="service-icon mb-4">
-                            <i class="fa fa-2x fa-ambulance text-white"></i>
-                        </div>
-                        <h4 class="mb-3">Ambulance Service</h4>
-                        <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo
-                            elitr dolor amet sit</p>
-                        <a class="btn btn-lg btn-primary rounded-pill" href="">
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div
-                        class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                        <div class="service-icon mb-4">
-                            <i class="fa fa-2x fa-pills text-white"></i>
-                        </div>
-                        <h4 class="mb-3">Medicine & Pharmacy</h4>
-                        <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo
-                            elitr dolor amet sit</p>
-                        <a class="btn btn-lg btn-primary rounded-pill" href="">
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div
-                        class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                        <div class="service-icon mb-4">
-                            <i class="fa fa-2x fa-microscope text-white"></i>
-                        </div>
-                        <h4 class="mb-3">Blood Testing</h4>
-                        <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo
-                            elitr dolor amet sit</p>
-                        <a class="btn btn-lg btn-primary rounded-pill" href="">
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+
+            <iframe width="100%" height="551" src="https://www.youtube.com/embed/Lo_3qOejQzI" 
+                title="Why electronic health records?" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
         </div>
-    </div>
-    <!-- Services End -->
+
+    </section>
+
+
+    <!-- Youtube Video End -->
 
 
 
@@ -215,9 +138,7 @@
                 <h1 class="display-4">Jordanian insurance companys</h1>
             </div>
             <div class="row justify-content-center">
-                <span class="d-flex justify-content-center">
-                    {{ $InsuranceCo->links() }}
-                </span>
+
                 @foreach ($InsuranceCo as $company)
                     <div class="col-12 col-md-6 col-lg-3">
 
@@ -226,8 +147,7 @@
 
                                 <div class="card-text">
                                     <h5 class="member-name mb-2 text-center text-primary font-weight-bold">
-                                        <a href={{ $company->website }} target="_blank"
-                                            title="Go to Company Website">
+                                        <a href={{ $company->website }} target="_blank" title="Go to Company Website">
                                             <img src="/InsuranceCoimages/{{ $company->image }}" alt="file_img"
                                                 style="max-width: 100%;height: auto;">
                                         </a>
@@ -244,8 +164,7 @@
                                 <div class="row d-flex justify-content-center">
                                     <ul class="social-list list-inline mb-0 mx-auto">
                                         <li class="list-inline-item">
-                                            <i class="align-middle" data-feather="mail"></i> <span
-                                                class="align-middle">
+                                            <i class="align-middle" data-feather="mail"></i> <span class="align-middle">
 
                                                 {{ $company->email }}
 
@@ -255,8 +174,7 @@
                                     <ul class="social-list list-inline mb-0 mx-auto">
 
                                         <li class="list-inline-item">
-                                            <i class="align-middle" data-feather="phone"></i> <span
-                                                class="align-middle">
+                                            <i class="align-middle" data-feather="phone"></i> <span class="align-middle">
 
                                                 {{ $company->phone }}
 
@@ -285,28 +203,12 @@
 
 
                     </div>
-
-                   
                 @endforeach
-
+                <span class="d-flex justify-content-center">
+                    {{ $InsuranceCo->links() }}
+                </span>
 
             </div>
         </div>
     </div>
-
-
-    <section class="team-section py-2">
-        <div class="container">
-           
-
-
-        </div>
-
-    </section>
-
-
-   
-
-
-
 @endsection

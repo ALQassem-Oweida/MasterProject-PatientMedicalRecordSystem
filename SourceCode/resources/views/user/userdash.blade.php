@@ -65,7 +65,7 @@
                 </li>
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="pages-blank.html" style="background-color: #6d8bb4;color:aliceblue">
+                    <a class="sidebar-link" href="/userInsurance" style="background-color: #6d8bb4;color:aliceblue">
                         <i class="align-middle" data-feather="info"></i> <span class="align-middle">Insurance
                             information</span>
                     </a>

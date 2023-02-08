@@ -15,7 +15,7 @@ class InsuranceController extends Controller
      */
     public function index()
     {
-        
+
         $InsuranceCo = JordanCoInsurance::paginate(3);
         return view('admin.InsuranceCoList', ['InsuranceCo' => $InsuranceCo]);
     }
@@ -37,7 +37,7 @@ class InsuranceController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-   {
+    {
         $request->validate([
             'name'          => 'required|string|min:2|max:100',
             'email'   => 'required|email|min:5|max:100',
@@ -67,27 +67,8 @@ class InsuranceController extends Controller
 
         return redirect()->back()->with('success', 'Comapny Data Add successfully');
     }
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+
 
     /**
      * Update the specified resource in storage.

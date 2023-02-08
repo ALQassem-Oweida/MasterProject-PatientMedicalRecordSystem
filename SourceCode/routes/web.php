@@ -18,6 +18,7 @@ use App\Http\Controllers\Medications;
 use App\Http\Controllers\newsController;
 use App\Http\Controllers\User\userAppointmentController;
 use App\Http\Controllers\User\userFilesController;
+use App\Http\Controllers\User\UserInsuranceController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserPublicController;
@@ -114,4 +115,6 @@ Route::middleware('role:2')->group(function () {
     Route::resource('/userFiles', userFilesController::class);
     Route::post('/filterFilesUser', 'App\Http\Controllers\User\userFilesController@getData');
     Route::get('/searchFilesUser', 'App\Http\Controllers\User\userFilesController@search');
+
+    Route::resource('/userInsurance', UserInsuranceController::class);
 });

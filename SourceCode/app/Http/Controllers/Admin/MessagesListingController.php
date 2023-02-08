@@ -22,9 +22,6 @@ class MessagesListingController extends Controller
     public function index()
     {
         $messages = contactus::paginate(3);
-
-
-
         return view('admin.messagesList', compact('messages'));
     }
 
